@@ -15,12 +15,12 @@ const MATH_SHAPES = [
   {
     label: '∑',
     className: 'float-geo font-serif select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(2rem, 4vw, 3.5rem)', top: '20%', right: '6%', color: 'rgba(37,99,235,0.055)', animationDelay: '1.5s', animationDuration: '9s' },
+    style: { fontSize: 'clamp(2rem, 4vw, 3.5rem)', top: '20%', right: '6%', color: 'rgba(220,38,38,0.055)', animationDelay: '1.5s', animationDuration: '9s' },
   },
   {
     label: '∇',
     className: 'float-geo-reverse font-serif select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', bottom: '28%', left: '4%', color: 'rgba(124,58,237,0.05)', animationDelay: '0.8s', animationDuration: '12s' },
+    style: { fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', bottom: '28%', left: '4%', color: 'rgba(153,27,27,0.05)', animationDelay: '0.8s', animationDuration: '12s' },
   },
   {
     label: 'ℝ',
@@ -30,12 +30,12 @@ const MATH_SHAPES = [
   {
     label: '∫',
     className: 'float-geo-slow font-serif select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', top: '52%', right: '9%', color: 'rgba(79,70,229,0.048)', animationDelay: '3s', animationDuration: '13s' },
+    style: { fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', top: '52%', right: '9%', color: 'rgba(239,68,68,0.048)', animationDelay: '3s', animationDuration: '13s' },
   },
   {
     label: '∈',
     className: 'float-geo-reverse font-serif select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(1.2rem, 2vw, 2rem)', top: '62%', left: '8%', color: 'rgba(37,99,235,0.04)', animationDelay: '1.2s', animationDuration: '10s' },
+    style: { fontSize: 'clamp(1.2rem, 2vw, 2rem)', top: '62%', left: '8%', color: 'rgba(220,38,38,0.04)', animationDelay: '1.2s', animationDuration: '10s' },
   },
   {
     label: '⊂',
@@ -69,7 +69,7 @@ export default function HeroSection() {
           width: '140%',
           height: '80%',
           background:
-            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.07) 0%, rgba(79,70,229,0.04) 40%, rgba(124,58,237,0.02) 65%, transparent 85%)',
+            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(220,38,38,0.07) 0%, rgba(239,68,68,0.04) 40%, rgba(153,27,27,0.02) 65%, transparent 85%)',
           transformOrigin: 'center top',
         }}
         aria-hidden="true"
@@ -104,7 +104,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-mono text-[10px] uppercase tracking-[0.45em] text-accent mb-8"
+          className="font-mono text-xs uppercase tracking-[0.45em] text-accent mb-8"
         >
           Portfolio — Available Fall 2027
         </motion.p>
@@ -132,9 +132,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.05 }}
-          className="font-mono text-[11px] uppercase tracking-[0.3em] max-w-sm"
+          className="font-mono text-xs uppercase tracking-[0.3em] max-w-sm"
           style={{
-            background: 'linear-gradient(90deg, #2563EB, #4F46E5, #7C3AED, #2563EB)',
+            background: 'linear-gradient(90deg, #DC2626, #EF4444, #991B1B, #DC2626)',
             backgroundSize: '300% 100%',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -150,7 +150,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.25 }}
-          className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted mt-3"
+          className="font-mono text-xs uppercase tracking-[0.3em] text-muted mt-3"
         >
           Washington University in St. Louis
         </motion.p>
@@ -187,7 +187,7 @@ export default function HeroSection() {
         >
           <ArrowDown className="h-4 w-4" />
         </motion.div>
-        <span className="font-mono text-[8px] uppercase tracking-[0.3em]">Scroll</span>
+        <span className="font-mono text-xs uppercase tracking-[0.3em]">Scroll</span>
       </motion.button>
     </section>
   );

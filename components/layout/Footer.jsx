@@ -24,7 +24,7 @@ export default function Footer() {
           {/* Branding */}
           <div>
             <p className="font-serif text-lg font-bold text-foreground">Xinshi Feng</p>
-            <p className="font-mono text-[9px] uppercase tracking-[0.35em] text-muted mt-1">
+            <p className="font-mono text-xs uppercase tracking-[0.35em] text-muted mt-1">
               Computer Science &amp; Mathematics · WashU
             </p>
           </div>
@@ -35,7 +35,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-mono text-[9px] uppercase tracking-[0.25em] text-muted hover:text-accent transition-colors py-2 min-h-[44px] flex items-center"
+                className="font-mono text-xs uppercase tracking-[0.25em] text-muted hover:text-accent transition-colors py-2 min-h-[44px] flex items-center"
               >
                 {link.label}
               </Link>
@@ -90,10 +90,10 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-mono text-[8px] uppercase tracking-[0.3em] text-muted/60">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted">
             © {year} Xinshi Feng · St. Louis, MO
           </p>
-          <p className="font-mono text-[8px] uppercase tracking-[0.3em] text-muted/40">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted">
             Available for Math PhD &amp; Internship · Fall 2027
           </p>
         </div>

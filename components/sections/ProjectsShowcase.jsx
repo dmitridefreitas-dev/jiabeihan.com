@@ -35,7 +35,7 @@ function ProjectCard({ project, index, isActive }) {
           className="absolute top-6 right-8 font-serif font-bold select-none pointer-events-none"
           style={{
             fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
-            color: isActive ? 'rgba(37,99,235,0.12)' : 'rgba(37,99,235,0.07)',
+            color: isActive ? 'rgba(220,38,38,0.12)' : 'rgba(220,38,38,0.07)',
             lineHeight: 1,
             letterSpacing: '-0.04em',
           }}
@@ -48,7 +48,7 @@ function ProjectCard({ project, index, isActive }) {
         {isActive && (
           <motion.div
             className="absolute top-6 left-7 w-1.5 h-1.5 rounded-full dot-pulse"
-            style={{ backgroundColor: '#2563EB' }}
+            style={{ backgroundColor: '#DC2626' }}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
@@ -57,7 +57,7 @@ function ProjectCard({ project, index, isActive }) {
 
         {/* Content */}
         <div className="relative z-10">
-          <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-accent mb-3">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent mb-3">
             {project.metric}
           </p>
           <h3 className="font-serif font-bold text-lg md:text-xl text-foreground leading-tight mb-3">
@@ -73,8 +73,8 @@ function ProjectCard({ project, index, isActive }) {
           className="absolute bottom-0 left-0 right-0 h-px"
           style={{
             background: isActive
-              ? 'linear-gradient(90deg, rgba(37,99,235,0.6), rgba(124,58,237,0.4), transparent)'
-              : 'linear-gradient(90deg, rgba(37,99,235,0.2), rgba(124,58,237,0.1), transparent)',
+              ? 'linear-gradient(90deg, rgba(220,38,38,0.6), rgba(153,27,27,0.4), transparent)'
+              : 'linear-gradient(90deg, rgba(220,38,38,0.2), rgba(153,27,27,0.1), transparent)',
           }}
         />
       </motion.div>
@@ -112,7 +112,7 @@ export default function ProjectsShowcase() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted mb-4"
+              className="font-mono text-xs uppercase tracking-[0.4em] text-muted mb-4"
             >
               Selected Research
             </motion.p>
@@ -192,8 +192,8 @@ export default function ProjectsShowcase() {
                     width: i === current ? 24 : 6,
                     height: 2,
                     background: i === current
-                      ? 'linear-gradient(90deg, #2563EB, #7C3AED)'
-                      : 'rgba(37,99,235,0.2)',
+                      ? 'linear-gradient(90deg, #DC2626, #991B1B)'
+                      : 'rgba(220,38,38,0.2)',
                     borderRadius: 2,
                     transition: 'width 0.3s ease, background 0.3s ease',
                   }}
@@ -204,7 +204,7 @@ export default function ProjectsShowcase() {
 
           <Link
             href="/projects"
-            className="group flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-muted hover:text-accent transition-colors"
+            className="group flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-muted hover:text-accent transition-colors"
             data-cursor="expand"
           >
             View All Research

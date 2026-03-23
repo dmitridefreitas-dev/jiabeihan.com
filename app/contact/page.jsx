@@ -9,10 +9,10 @@ import { contactInfo, opportunityGroups, socialLinks } from '@/data/constants';
 
 // Floating math symbols for contact hero
 const CONTACT_SHAPES = [
-  { label: '∀', style: { fontSize: 'clamp(3rem, 7vw, 6rem)', top: '16%', left: '5%', color: 'rgba(37,99,235,0.06)' } },
-  { label: '∃', style: { fontSize: 'clamp(2rem, 4vw, 4rem)', top: '22%', right: '7%', color: 'rgba(124,58,237,0.05)' } },
-  { label: '⊃', style: { fontSize: 'clamp(2.5rem, 5vw, 5rem)', bottom: '24%', left: '6%', color: 'rgba(37,99,235,0.05)' } },
-  { label: '∴', style: { fontSize: 'clamp(1.5rem, 3vw, 3rem)', bottom: '28%', right: '5%', color: 'rgba(79,70,229,0.05)' } },
+  { label: '∀', style: { fontSize: 'clamp(3rem, 7vw, 6rem)', top: '16%', left: '5%', color: 'rgba(220,38,38,0.06)' } },
+  { label: '∃', style: { fontSize: 'clamp(2rem, 4vw, 4rem)', top: '22%', right: '7%', color: 'rgba(153,27,27,0.05)' } },
+  { label: '⊃', style: { fontSize: 'clamp(2.5rem, 5vw, 5rem)', bottom: '24%', left: '6%', color: 'rgba(220,38,38,0.05)' } },
+  { label: '∴', style: { fontSize: 'clamp(1.5rem, 3vw, 3rem)', bottom: '28%', right: '5%', color: 'rgba(239,68,68,0.05)' } },
 ];
 
 export default function ContactPage() {
@@ -90,7 +90,7 @@ export default function ContactPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="font-mono text-[10px] uppercase tracking-[0.4em] text-accent mb-8 relative z-10"
+          className="font-mono text-xs uppercase tracking-[0.4em] text-accent mb-8 relative z-10"
         >
           Let&apos;s Talk
         </motion.p>
@@ -105,7 +105,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 }}
-          className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted mt-8 relative z-10 break-all"
+          className="font-mono text-xs uppercase tracking-[0.3em] text-muted mt-8 relative z-10 break-all"
         >
           Available Fall 2027 &nbsp;·&nbsp; {contactInfo.email}
         </motion.p>
@@ -129,7 +129,7 @@ export default function ContactPage() {
           >
             {/* Contact details */}
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-muted mb-10">
+              <p className="font-mono text-xs uppercase tracking-[0.35em] text-muted mb-10">
                 Contact
               </p>
               <div className="flex flex-col gap-8">
@@ -146,7 +146,7 @@ export default function ContactPage() {
                   >
                     <Icon className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-mono text-[9px] uppercase tracking-widest text-muted mb-1">{label}</p>
+                      <p className="font-mono text-xs uppercase tracking-widest text-muted mb-1">{label}</p>
                       {href ? (
                         <a href={href} className="text-foreground hover:text-accent transition-colors text-sm" data-cursor="expand">
                           {content}
@@ -165,7 +165,7 @@ export default function ContactPage() {
 
             {/* Seeking */}
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-muted mb-10">
+              <p className="font-mono text-xs uppercase tracking-[0.35em] text-muted mb-10">
                 Open To
               </p>
               <div className="flex flex-col gap-8">
@@ -177,12 +177,12 @@ export default function ContactPage() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.07 }}
                   >
-                    <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent mb-2">
+                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-2">
                       {group.category}
                     </p>
                     <div className="flex flex-col gap-1.5">
                       {group.roles.map((role, j) => (
-                        <span key={j} className="font-mono text-[10px] uppercase tracking-widest text-muted/70">
+                        <span key={j} className="font-mono text-xs uppercase tracking-widest text-muted">
                           · {role}
                         </span>
                       ))}
@@ -198,7 +198,7 @@ export default function ContactPage() {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted hover:text-accent transition-colors w-fit"
+                className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted hover:text-accent transition-colors w-fit"
                 whileHover={{ x: 4 }}
                 data-cursor="expand"
               >
@@ -208,7 +208,7 @@ export default function ContactPage() {
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted hover:text-accent transition-colors w-fit"
+                className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted hover:text-accent transition-colors w-fit"
                 whileHover={{ x: 4 }}
                 data-cursor="expand"
               >
@@ -218,7 +218,7 @@ export default function ContactPage() {
                 href={socialLinks.arxiv}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted hover:text-accent transition-colors w-fit"
+                className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted hover:text-accent transition-colors w-fit"
                 whileHover={{ x: 4 }}
                 data-cursor="expand"
               >
@@ -235,7 +235,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="md:sticky md:top-28"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-muted mb-10">
+            <p className="font-mono text-xs uppercase tracking-[0.35em] text-muted mb-10">
               Send a Message
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-10" noValidate>
@@ -244,7 +244,7 @@ export default function ContactPage() {
                 { id: 'email', label: 'Email', type: 'email', placeholder: 'your.email@example.com' },
               ].map(({ id, label, type, placeholder }) => (
                 <div key={id}>
-                  <label htmlFor={id} className="block font-mono text-[9px] uppercase tracking-[0.25em] text-muted mb-2">
+                  <label htmlFor={id} className="block font-mono text-xs uppercase tracking-[0.25em] text-muted mb-2">
                     {label}
                   </label>
                   <input
@@ -260,7 +260,7 @@ export default function ContactPage() {
                 </div>
               ))}
               <div>
-                <label htmlFor="message" className="block font-mono text-[9px] uppercase tracking-[0.25em] text-muted mb-2">
+                <label htmlFor="message" className="block font-mono text-xs uppercase tracking-[0.25em] text-muted mb-2">
                   Message
                 </label>
                 <textarea
@@ -284,7 +284,7 @@ export default function ContactPage() {
                       animate={{ opacity: 1, scale: 1.1 }}
                       exit={{ opacity: 0, scale: 1.3 }}
                       transition={{ duration: 0.5 }}
-                      style={{ boxShadow: '0 0 40px rgba(37,99,235,0.4), 0 0 80px rgba(124,58,237,0.2)' }}
+                      style={{ boxShadow: '0 0 40px rgba(220,38,38,0.4), 0 0 80px rgba(153,27,27,0.2)' }}
                       aria-hidden="true"
                     />
                   )}

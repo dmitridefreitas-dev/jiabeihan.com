@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const METERS = [
-  { label: 'Research Hours', baseVal: 74, unit: '%', color: '#2563EB' },
-  { label: 'Coffee Consumed', baseVal: 88, unit: '%', color: '#7C3AED' },
+  { label: 'Research Hours', baseVal: 74, unit: '%', color: '#DC2626' },
+  { label: 'Coffee Consumed', baseVal: 88, unit: '%', color: '#991B1B' },
 ];
 
 export default function FooterMeters() {
@@ -25,10 +25,10 @@ export default function FooterMeters() {
       {METERS.map((meter, i) => (
         <div key={meter.label} className="flex flex-col gap-1.5 min-w-[120px]">
           <div className="flex justify-between items-baseline">
-            <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-muted/70">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
               {meter.label}
             </span>
-            <span className="font-mono text-[8px] text-muted/50">
+            <span className="font-mono text-xs text-muted">
               {Math.round(values[i])}{meter.unit}
             </span>
           </div>
@@ -45,9 +45,9 @@ export default function FooterMeters() {
       <div className="flex items-center gap-2 ml-auto">
         <span
           className="dot-pulse w-1.5 h-1.5 rounded-full bg-accent inline-block"
-          style={{ backgroundColor: '#2563EB' }}
+          style={{ backgroundColor: '#DC2626' }}
         />
-        <span className="font-mono text-[8px] uppercase tracking-[0.3em] text-muted/60">
+        <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted">
           p &lt; 0.05
         </span>
       </div>

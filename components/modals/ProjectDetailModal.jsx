@@ -22,14 +22,14 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
         <DialogHeader>
           <div className="flex items-start gap-3 mb-1">
             {project.isPaper && (
-              <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white bg-accent px-2 py-1 rounded flex-shrink-0 mt-0.5">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-white bg-accent px-2 py-1 rounded flex-shrink-0 mt-0.5">
                 Published
               </span>
             )}
             <DialogTitle className="text-xl font-serif leading-tight">{project.title}</DialogTitle>
           </div>
           {project.journal && (
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent mt-1">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent mt-1">
               {project.journal}
             </p>
           )}
@@ -41,12 +41,12 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
         <div className="space-y-5 mt-2">
           {/* Tech Stack */}
           <div>
-            <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent mb-2">
+            <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-2">
               Methods &amp; Tools
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {(project.techStack || []).map((tech, i) => (
-                <Badge key={i} variant="secondary" className="text-[10px]">
+                <Badge key={i} variant="secondary" className="text-xs">
                   {tech}
                 </Badge>
               ))}
@@ -56,7 +56,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
           {/* Metrics */}
           {project.metrics && (
             <div>
-              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent mb-2">
+              <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-2">
                 Key Findings
               </h4>
               <ul className="space-y-2">
@@ -79,7 +79,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
           {/* Data Sources / Context */}
           {project.dataSources && (
             <div>
-              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent mb-2">
+              <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-2">
                 Context &amp; Data
               </h4>
               <ul className="space-y-1.5">

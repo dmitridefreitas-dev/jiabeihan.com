@@ -20,47 +20,34 @@ export default function CounterDisplay({ value, label, delay = 0 }) {
   }, [display, value, done]);
 
   return (
-    <div className="flex flex-col items-center gap-3 relative">
-      {/* Pulse ring that fires on completion */}
-      {ringVisible && (
-        <span
-          className="absolute inset-0 rounded-full pointer-events-none"
+    <div className="flex flex-col items-center gap-4 relative">
+      <div className="relative border-l-2 border-r-2 border-accent px-8 py-3 rounded-none overflow-hidden">
+        {/* Pulse brackets that fire on completion */}
+        {ringVisible && (
+          <span
+            className="absolute inset-0 border-l-2 border-r-2 border-accent pointer-events-none"
+            style={{
+              animation: 'pulse-bracket-anim 0.9s ease-out forwards',
+            }}
+            aria-hidden="true"
+          />
+        )}
+
+        <motion.span
+          ref={ref}
+          className="font-serif font-bold text-display gpu relative block"
           style={{
-            border: '1px solid rgba(37,99,235,0.5)',
-            animation: 'pulse-ring-anim 0.9s ease-out forwards',
+            color: '#1A1A2E',
+            textShadow: done ? '0 0 20px rgba(220,38,38,0.2)' : 'none',
           }}
-          aria-hidden="true"
-        />
-      )}
+          animate={done ? { scale: [1, 1.08, 1] } : {}}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+        >
+          {display}
+        </motion.span>
+      </div>
 
-      {/* Ambient glow disc behind number */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          width: '120%',
-          height: '120%',
-          top: '-10%',
-          left: '-10%',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%)',
-          animation: 'headshot-glow-anim 4s ease-in-out infinite',
-        }}
-        aria-hidden="true"
-      />
-
-      <motion.span
-        ref={ref}
-        className="font-sans font-semibold text-display gpu relative"
-        style={{
-          color: '#1A1A2E',
-          animation: 'glow-text-pulse 4s ease-in-out infinite',
-        }}
-        animate={done ? { scale: [1, 1.06, 1] } : {}}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
-      >
-        {display}
-      </motion.span>
-      <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted text-center max-w-[12ch]">
+      <span className="font-mono text-xs uppercase tracking-[0.25em] text-muted text-center max-w-[14ch]">
         {label}
       </span>
     </div>

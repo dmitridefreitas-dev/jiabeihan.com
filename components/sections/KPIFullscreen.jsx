@@ -17,7 +17,7 @@ export default function KPIFullscreen() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent text-center mb-20"
+          className="font-mono text-xs uppercase tracking-[0.35em] text-accent text-center mb-20"
         >
           By The Numbers
         </motion.p>

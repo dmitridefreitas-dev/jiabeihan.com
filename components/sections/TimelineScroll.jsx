@@ -4,8 +4,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { timeline } from '@/data/constants';
 
 const TYPE_COLORS = {
-  research: '#2563EB',
-  teaching: '#7C3AED',
+  research: '#DC2626',
+  teaching: '#991B1B',
   education: '#059669',
   activity: '#D97706',
 };
@@ -25,7 +25,7 @@ export default function TimelineScroll() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted text-center mb-24"
+        className="font-mono text-xs uppercase tracking-[0.4em] text-muted text-center mb-24"
       >
         Journey
       </motion.p>
@@ -34,21 +34,21 @@ export default function TimelineScroll() {
         {/* Background track line */}
         <div
           className="absolute left-0 top-0 bottom-0 w-px"
-          style={{ background: 'rgba(37,99,235,0.1)', top: 0 }}
+          style={{ background: 'rgba(220,38,38,0.1)', top: 0 }}
         />
         {/* Animated fill line */}
         <motion.div
           className="absolute left-0 top-0 bottom-0 w-px origin-top"
           style={{
-            background: 'linear-gradient(to bottom, rgba(37,99,235,0.6), rgba(124,58,237,0.4), rgba(37,99,235,0.2))',
+            background: 'linear-gradient(to bottom, rgba(220,38,38,0.6), rgba(153,27,27,0.4), rgba(220,38,38,0.2))',
             scaleY: lineScaleY,
-            boxShadow: '0 0 6px rgba(37,99,235,0.25)',
+            boxShadow: '0 0 6px rgba(220,38,38,0.25)',
           }}
         />
 
         <div className="flex flex-col gap-0">
           {timeline.map((entry, i) => {
-            const dotColor = TYPE_COLORS[entry.type] || '#2563EB';
+            const dotColor = TYPE_COLORS[entry.type] || '#DC2626';
             return (
               <motion.article
                 key={i}
@@ -78,7 +78,7 @@ export default function TimelineScroll() {
                   style={{
                     fontSize: 'clamp(2rem, 6vw, 4.5rem)',
                     lineHeight: 0.9,
-                    color: 'rgba(37,99,235,0.05)',
+                    color: 'rgba(220,38,38,0.05)',
                     letterSpacing: '-0.04em',
                   }}
                   aria-hidden="true"
@@ -88,7 +88,7 @@ export default function TimelineScroll() {
 
                 <div className="mt-2">
                   <span
-                    className="font-mono text-[9px] uppercase tracking-[0.25em]"
+                    className="font-mono text-xs uppercase tracking-[0.25em]"
                     style={{ color: dotColor }}
                   >
                     {entry.year} — {entry.type}

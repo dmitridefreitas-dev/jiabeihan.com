@@ -23,9 +23,9 @@ export default function MagneticButton({
 
   const variants = {
     default:
-      'bg-accent text-white hover:bg-blue-700 shadow-[0_2px_16px_rgba(37,99,235,0.25)] hover:shadow-[0_4px_24px_rgba(37,99,235,0.35)]',
+      'bg-accent text-white hover:bg-red-700 shadow-[0_2px_16px_rgba(220,38,38,0.25)] hover:shadow-[0_4px_24px_rgba(220,38,38,0.35)]',
     outline:
-      'border border-accent/40 text-accent hover:bg-blue-50 hover:border-accent/70',
+      'border border-accent/40 text-accent hover:bg-red-50 hover:border-accent/70',
     ghost: 'text-muted hover:text-foreground hover:bg-gray-100/80',
   };
 

@@ -38,28 +38,28 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Logo — serif monogram */}
-        <Link href="/" className="group flex items-center gap-2" data-cursor="expand">
+        <Link href="/" className="group flex items-center gap-2 relative z-10" data-cursor="expand">
           <motion.span
             className="font-serif text-xl font-bold text-foreground group-hover:text-accent transition-colors duration-200"
             whileHover={{ scale: 1.04 }}
           >
             X. Feng
           </motion.span>
-          <span className="hidden sm:block font-mono text-[8px] uppercase tracking-[0.3em] text-muted/60 mt-0.5">
+          <span className="hidden sm:block font-mono text-sm uppercase tracking-[0.2em] text-muted mt-0.5">
             — cs &amp; math
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+        <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2" aria-label="Main navigation">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative font-mono text-[10px] uppercase tracking-[0.25em] transition-colors duration-200 hover:text-accent"
-                style={{ color: isActive ? '#2563EB' : '#6B7280' }}
+                className="relative font-mono text-xs uppercase tracking-[0.25em] transition-colors duration-200 hover:text-accent"
+                style={{ color: isActive ? '#DC2626' : '#6B7280' }}
                 data-cursor="expand"
               >
                 {link.label}
@@ -75,7 +75,7 @@ export default function Header() {
         </nav>
 
         {/* Desktop right side — social icons */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4 relative z-10">
           <a
             href={socialLinks.linkedin}
             target="_blank"
@@ -106,7 +106,7 @@ export default function Header() {
           >
             <FileText className="h-4 w-4" />
           </a>
-          <MagneticButton href="/contact" size="sm" data-cursor="expand">
+          <MagneticButton href="/contact" variant="ghost" className="text-sm px-4 py-1.5" data-cursor="expand">
             Get in Touch
           </MagneticButton>
         </div>
@@ -138,8 +138,8 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-mono text-[11px] uppercase tracking-[0.3em] transition-colors py-2 min-h-[44px] flex items-center"
-                  style={{ color: isActive ? '#2563EB' : '#1A1A2E' }}
+                  className="font-mono text-xs uppercase tracking-[0.3em] transition-colors py-2 min-h-[44px] flex items-center"
+                  style={{ color: isActive ? '#DC2626' : '#1A1A2E' }}
                 >
                   {link.label}
                 </Link>

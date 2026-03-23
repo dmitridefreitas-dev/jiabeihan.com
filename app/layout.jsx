@@ -4,7 +4,6 @@ import Footer from '@/components/layout/Footer';
 import GridBackground from '@/components/effects/CosmicBackground';
 import AtmosphericBlobs from '@/components/effects/AtmosphericBlobs';
 import GrainOverlay from '@/components/effects/GrainOverlay';
-import FluidCursor from '@/components/effects/FluidCursor';
 import ClientShell from '@/components/layout/ClientShell';
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
@@ -78,7 +77,6 @@ export default function RootLayout({ children }) {
         <GridBackground />
         <AtmosphericBlobs />
         <GrainOverlay />
-        <FluidCursor />
 
         <ClientShell>
           <div className="flex flex-col min-h-screen relative" style={{ zIndex: 10 }}>

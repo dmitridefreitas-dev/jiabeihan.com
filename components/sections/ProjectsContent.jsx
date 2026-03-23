@@ -13,7 +13,7 @@ function ProjectRow({ project, index, onOpen }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.5, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative border-b border-gray-200/80 py-8 cursor-pointer hover:bg-blue-50/30 transition-all rounded-lg px-4 -mx-4"
+      className="group relative border-b border-gray-200/80 py-8 cursor-pointer hover:bg-red-50/30 transition-all rounded-lg px-4 -mx-4"
       onClick={() => onOpen(project)}
       role="button"
       tabIndex={0}
@@ -26,11 +26,11 @@ function ProjectRow({ project, index, onOpen }) {
         <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-1 md:w-24 flex-shrink-0">
           <span
             className="font-serif font-bold text-3xl leading-none group-hover:text-accent transition-colors"
-            style={{ color: 'rgba(37,99,235,0.12)' }}
+            style={{ color: 'rgba(220,38,38,0.12)' }}
           >
             {String(index + 1).padStart(2, '0')}
           </span>
-          <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-muted/60">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
             {project.category}
           </span>
           {project.isPaper && (
@@ -46,7 +46,7 @@ function ProjectRow({ project, index, onOpen }) {
             {project.title}
           </h3>
           {project.journal && (
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent mb-2">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-2">
               {project.journal}
             </p>
           )}
@@ -59,7 +59,7 @@ function ProjectRow({ project, index, onOpen }) {
             {project.techStack.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted border border-gray-200 rounded px-2 py-0.5"
+                className="font-mono text-xs uppercase tracking-[0.15em] text-muted border border-gray-200 rounded px-2 py-0.5"
               >
                 {tech}
               </span>
@@ -75,14 +75,14 @@ function ProjectRow({ project, index, onOpen }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.15em] text-accent hover:text-accent/80 transition-colors"
+              className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.15em] text-accent hover:text-accent/80 transition-colors"
               aria-label="View paper"
             >
               <FileText className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">Paper</span>
             </a>
           )}
-          <span className="flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.15em] text-muted group-hover:text-accent transition-colors">
+          <span className="flex items-center gap-1 font-mono text-xs uppercase tracking-[0.15em] text-muted group-hover:text-accent transition-colors">
             Details <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </span>
         </div>
@@ -115,7 +115,7 @@ export default function ProjectsContent() {
           className="absolute font-serif font-bold select-none pointer-events-none"
           style={{
             fontSize: 'clamp(4rem, 14vw, 12rem)',
-            color: 'rgba(37,99,235,0.03)',
+            color: 'rgba(220,38,38,0.03)',
             letterSpacing: '-0.06em',
             lineHeight: 1,
             top: '50%',
@@ -132,7 +132,7 @@ export default function ProjectsContent() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="font-mono text-[10px] uppercase tracking-[0.4em] text-accent mb-6 relative z-10"
+          className="font-mono text-xs uppercase tracking-[0.4em] text-accent mb-6 relative z-10"
         >
           Work &amp; Publications
         </motion.p>
@@ -147,7 +147,7 @@ export default function ProjectsContent() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 }}
-          className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted mt-6 relative z-10"
+          className="font-mono text-xs uppercase tracking-[0.3em] text-muted mt-6 relative z-10"
         >
           {allProjects.length} Projects · 1 Published Paper
         </motion.p>
@@ -165,7 +165,7 @@ export default function ProjectsContent() {
         >
           <div className="flex-shrink-0 w-2 h-2 rounded-full bg-accent dot-pulse" />
           <div className="text-left">
-            <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-accent">Published · Physical Review E 112, 054309 (2025)</p>
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">Published · Physical Review E 112, 054309 (2025)</p>
             <p className="font-serif font-bold text-sm text-foreground group-hover:text-accent transition-colors">
               Evolution of Cooperation in a Bimodal Mixture of Conditional Cooperators
             </p>
@@ -186,11 +186,11 @@ export default function ProjectsContent() {
                 onClick={() => setActiveCategory(cat)}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="font-mono text-[9px] uppercase tracking-[0.25em] px-4 py-2 rounded-lg border transition-all"
+                className="font-mono text-xs uppercase tracking-[0.25em] px-4 py-2 rounded-lg border transition-all"
                 style={{
-                  background: activeCategory === cat ? '#2563EB' : 'transparent',
+                  background: activeCategory === cat ? '#DC2626' : 'transparent',
                   color: activeCategory === cat ? '#FFFFFF' : '#6B7280',
-                  borderColor: activeCategory === cat ? '#2563EB' : '#E5E7EB',
+                  borderColor: activeCategory === cat ? '#DC2626' : '#E5E7EB',
                 }}
                 data-cursor="expand"
               >

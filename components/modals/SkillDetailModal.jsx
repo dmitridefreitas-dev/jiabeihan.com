@@ -15,7 +15,7 @@ export default function SkillDetailModal({ skill, isOpen, onClose }) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <p className="font-mono text-[8px] uppercase tracking-[0.3em] text-accent mb-1">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent mb-1">
             {skill.category}
           </p>
           <DialogTitle className="font-serif">{skill.name}</DialogTitle>
@@ -24,12 +24,12 @@ export default function SkillDetailModal({ skill, isOpen, onClose }) {
 
         <div className="space-y-4 mt-2">
           <div>
-            <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent mb-2">
+            <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-2">
               Used For
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {(skill.usedFor || []).map((item, i) => (
-                <Badge key={i} variant="secondary" className="text-[10px]">
+                <Badge key={i} variant="secondary" className="text-xs">
                   {item}
                 </Badge>
               ))}
@@ -37,12 +37,12 @@ export default function SkillDetailModal({ skill, isOpen, onClose }) {
           </div>
 
           <div>
-            <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent mb-2">
+            <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-2">
               Key Libraries &amp; Features
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {(skill.keyFeatures || []).map((item, i) => (
-                <Badge key={i} variant="outline" className="text-[10px]">
+                <Badge key={i} variant="outline" className="text-xs">
                   {item}
                 </Badge>
               ))}

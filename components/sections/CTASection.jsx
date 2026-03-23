@@ -17,7 +17,7 @@ export default function CTASection() {
         className="absolute font-serif font-bold select-none pointer-events-none"
         style={{
           fontSize: 'clamp(3rem, 10vw, 9rem)',
-          color: 'rgba(37,99,235,0.035)',
+          color: 'rgba(220,38,38,0.035)',
           letterSpacing: '-0.05em',
           lineHeight: 1,
           top: '50%',
@@ -35,7 +35,7 @@ export default function CTASection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-mono text-[10px] uppercase tracking-[0.4em] text-accent mb-8"
+          className="font-mono text-xs uppercase tracking-[0.4em] text-accent mb-8"
         >
           Available — Fall 2027
         </motion.p>
@@ -68,7 +68,7 @@ export default function CTASection() {
           {targetRoles.map((role, i) => (
             <span
               key={role}
-              className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted"
+              className="font-mono text-xs uppercase tracking-[0.2em] text-muted"
             >
               {i > 0 && <span className="mr-6 text-accent/50">·</span>}
               {role}

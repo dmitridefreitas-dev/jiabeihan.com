@@ -10,7 +10,7 @@ export default function AcademicTicker() {
         {tripled.map((term, i) => (
           <span
             key={i}
-            className="inline-flex items-center text-[10px] font-mono uppercase tracking-[0.2em] text-muted/60 mx-6"
+            className="inline-flex items-center text-xs font-mono uppercase tracking-[0.2em] text-muted mx-6"
           >
             <span className="w-1 h-1 rounded-full bg-accent/30 mr-4 flex-shrink-0" />
             {term}

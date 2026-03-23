@@ -15,7 +15,7 @@ function SkillSlide({ skill, onClick, className = '' }) {
       tabIndex={0}
       data-cursor="expand"
     >
-      <p className="font-mono text-[9px] uppercase tracking-[0.35em] text-accent mb-6">
+      <p className="font-mono text-xs uppercase tracking-[0.35em] text-accent mb-6">
         {skill.category}
       </p>
       <h3 className="font-serif font-bold text-xl md:text-2xl text-foreground mb-5 will-change-transform group-hover:text-accent transition-colors duration-300">
@@ -28,14 +28,14 @@ function SkillSlide({ skill, onClick, className = '' }) {
         {skill.keyFeatures.slice(0, 3).map((f, i) => (
           <span
             key={i}
-            className="font-mono text-[9px] uppercase tracking-widest text-muted/70 border-b border-muted/20 pb-0.5"
+            className="font-mono text-xs uppercase tracking-widest text-muted border-b border-muted/20 pb-0.5"
           >
             {f}
           </span>
         ))}
       </div>
       <motion.p
-        className="mt-10 font-mono text-[10px] uppercase tracking-[0.2em] text-accent border border-accent/30 hover:border-accent/70 rounded px-3 py-1.5 w-fit transition-colors"
+        className="mt-10 font-mono text-xs uppercase tracking-[0.2em] text-accent border border-accent/30 hover:border-accent/70 rounded px-3 py-1.5 w-fit transition-colors"
         whileHover={{ x: 4 }}
         transition={{ type: 'spring', stiffness: 400, damping: 25 }}
       >
@@ -69,12 +69,12 @@ export default function SkillsHorizontal() {
   return (
     <section aria-label="Skills" className="overflow-hidden">
       {/* Header */}
-      <div className="h-[20vh] flex items-end px-6 lg:px-12 pb-12">
+      <div className="pt-12 pb-4 flex items-end px-6 lg:px-12">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted"
+          className="font-mono text-xs uppercase tracking-[0.4em] text-muted"
         >
           Tools &amp; Languages —{' '}
           <span className="hidden lg:inline">Scroll to explore</span>
@@ -129,7 +129,7 @@ export default function SkillsHorizontal() {
               <span
                 key={`${skill.name}-${i}`}
                 className="font-serif font-bold text-4xl md:text-6xl uppercase tracking-tighter hover:text-accent/60 transition-colors cursor-pointer"
-                style={{ color: 'rgba(26,26,46,0.07)' }}
+                style={{ color: 'rgba(26,26,46,0.15)' }}
                 onClick={() => setSelectedSkill(skill)}
               >
                 {skill.name}
@@ -150,7 +150,7 @@ export default function SkillsHorizontal() {
           {[...skillsData, ...skillsData, ...skillsData].map((skill, i) => (
             <span
               key={`marquee-${skill.name}-${i}`}
-              className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted/50 hover:text-accent transition-colors cursor-pointer"
+              className="font-mono text-xs uppercase tracking-[0.3em] text-muted hover:text-accent transition-colors cursor-pointer"
               onClick={() => setSelectedSkill(skill)}
             >
               {skill.name}

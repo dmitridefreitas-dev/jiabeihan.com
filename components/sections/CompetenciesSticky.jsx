@@ -14,7 +14,7 @@ export default function CompetenciesSticky() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted text-center mb-20"
+        className="font-mono text-xs uppercase tracking-[0.4em] text-muted text-center mb-20"
       >
         Core Competencies
       </motion.p>
@@ -39,7 +39,7 @@ export default function CompetenciesSticky() {
                   <motion.div
                     className="absolute inset-0 rounded-full"
                     style={{
-                      background: 'conic-gradient(from 0deg, transparent 60%, rgba(37,99,235,0.5) 80%, transparent 100%)',
+                      background: 'conic-gradient(from 0deg, transparent 60%, rgba(220,38,38,0.5) 80%, transparent 100%)',
                     }}
                     animate={{ rotate: 360 }}
                     transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
@@ -48,7 +48,7 @@ export default function CompetenciesSticky() {
                   {/* Inner glow */}
                   <div
                     className="absolute inset-1 rounded-full"
-                    style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%)' }}
+                    style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.1) 0%, transparent 70%)' }}
                     aria-hidden="true"
                   />
                   <Icon className="w-5 h-5 text-accent relative z-10" strokeWidth={1.5} />
@@ -65,7 +65,7 @@ export default function CompetenciesSticky() {
                 {/* Animated accent underline */}
                 <motion.div
                   className="mt-8 h-px origin-left"
-                  style={{ background: 'linear-gradient(90deg, rgba(37,99,235,0.6), transparent)' }}
+                  style={{ background: 'linear-gradient(90deg, rgba(220,38,38,0.6), transparent)' }}
                   initial={{ width: 0 }}
                   whileInView={{ width: 48 }}
                   viewport={{ once: true }}
