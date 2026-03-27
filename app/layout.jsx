@@ -1,9 +1,7 @@
 import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import GridBackground from '@/components/effects/CosmicBackground';
 import AtmosphericBlobs from '@/components/effects/AtmosphericBlobs';
-import GrainOverlay from '@/components/effects/GrainOverlay';
 import ClientShell from '@/components/layout/ClientShell';
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
@@ -27,57 +25,133 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'Xinshi Feng — Computer Science & Mathematics',
+  metadataBase: new URL('https://jiabeihan.com'),
+  title: {
+    default: 'Jiabei Han — Finance & Computer Science | WashU',
+    template: '%s | Jiabei Han',
+  },
   description:
-    'Portfolio of Xinshi Feng, double major in Computer Science and Mathematics at Washington University in St. Louis. Researcher in manifold theory, reinforcement learning, and machine learning. Available for Math PhD programs and research internships, Fall 2027.',
+    'Jiabei Han — Double Major in Finance and Computer Science at Washington University in St. Louis (May 2026). Capital Markets Summer Analyst at U.S. Bank Capital Markets. Software Engineering Research Assistant at Z-Lab for Biophotonics. Available for full-time roles.',
+  keywords: [
+    'Jiabei Han',
+    'Jiabei Han U.S. Bank',
+    'Jiabei Han WashU',
+    'Jiabei Han finance computer science',
+    'finance student',
+    'Washington University in St. Louis finance',
+    'WashU finance computer science',
+    'U.S. Bank Capital Markets Summer Analyst 2025',
+    'U.S. Bank Finance & Banking Intern',
+    'Z-Lab Biophotonics Software Engineering Research Assistant',
+    'capital markets analysis',
+    'investment banking',
+    'asset management',
+    'quantitative finance',
+    'financial modeling',
+    'machine learning algorithms',
+    'Beta Gamma Sigma WashU',
+    'NISA Investment Advisors Scholars Award',
+    'finance portfolio',
+    'computer science portfolio',
+  ],
+  authors: [{ name: 'Jiabei Han', url: 'https://www.linkedin.com/in/jiabeihan12/' }],
+  creator: 'Jiabei Han',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'Xinshi Feng — Computer Science & Mathematics',
-    description: 'Portfolio of Xinshi Feng, double major in Computer Science and Mathematics at Washington University in St. Louis.',
-    url: 'https://xinshifeng.com',
-    siteName: 'Xinshi Feng',
-    images: [
-      {
-        url: '/images/headshot.jpeg', // Fallback OG image
-        width: 800,
-        height: 800,
-      },
-    ],
+    title: 'Jiabei Han — Finance & Computer Science',
+    description:
+      'Jiabei Han — Capital Markets Summer Analyst at U.S. Bank. Double Major in Finance and Computer Science at WashU. Software Engineering Research Assistant at Z-Lab for Biophotonics. Available for full-time roles.',
+    siteName: 'Jiabei Han',
+    url: 'https://jiabeihan.com',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Xinshi Feng — Computer Science & Mathematics',
-    description: 'Portfolio of Xinshi Feng, double major in Computer Science and Mathematics at Washington University in St. Louis.',
+    title: 'Jiabei Han — Finance & Computer Science',
+    description:
+      'Capital Markets Summer Analyst at U.S. Bank. Double Major in Finance and Computer Science at WashU. Software Engineering Research Assistant at Z-Lab for Biophotonics.',
+    creator: '@jiabeihan',
+  },
+  alternates: {
+    canonical: 'https://jiabeihan.com',
   },
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Xinshi Feng',
-  jobTitle: 'Computer Science & Mathematics Student Researcher',
+  name: 'Jiabei Han',
+  givenName: 'Jiabei',
+  familyName: 'Han',
+  jobTitle: 'Finance and Computer Science Student & Capital Markets Summer Analyst',
+  description:
+    'Jiabei Han is a Finance and Computer Science student at Washington University in St. Louis, Capital Markets Summer Analyst at U.S. Bank Capital Markets, and Software Engineering Research Assistant at Z-Lab for Biophotonics. Available for full-time roles.',
+  url: 'https://jiabeihan.com',
+  image: 'https://jiabeihan.com/opengraph-image',
+  email: 'jiabeihan01@gmail.com',
+  telephone: '(314) 349-5729',
   alumniOf: [
-    { '@type': 'CollegeOrUniversity', name: 'Washington University in St. Louis' },
-    { '@type': 'HighSchool', name: 'Culver Academies' },
+    {
+      '@type': 'CollegeOrUniversity',
+      name: 'Washington University in St. Louis',
+      sameAs: 'https://wustl.edu',
+    },
   ],
-  email: 'f.jerry@wustl.edu',
-  telephone: '(949)-709-6611',
+  worksFor: [
+    {
+      '@type': 'Organization',
+      name: 'U.S. Bank Capital Markets',
+      description: 'Capital Markets Summer Analyst 2025',
+    },
+  ],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'Finance and Computer Science Student',
+    occupationLocation: { '@type': 'Country', name: 'United States' },
+    skills:
+      'Finance, Computer Science, Financial Accounting, Cash Flow Modeling, Valuation, Debt Capital Markets, Mergers and Acquisitions, Company and Industry Research, Calculus, Matrix/Linear Algebra, Probability Distributions, Multivariate Random Variables, Hypothesis Testing, Regression Analysis, Microsoft Office (Excel, PowerPoint, Word), Python, Java, Data Analytics (SQL, R), MATLAB, Machine Learning, Time Series Analysis, Data Structures, Leadership, Mentoring, Teaching, Community Outreach',
+  },
   sameAs: [
-    'https://www.linkedin.com/in/xinshifeng/',
-    'https://github.com/XinshiFeng',
-    'https://arxiv.org/abs/2502.07537',
+    'https://www.linkedin.com/in/jiabeihan12/',
   ],
   knowsAbout: [
-    'Differential Topology',
-    'de Rham Cohomology',
-    'Reinforcement Learning',
+    'Finance',
+    'Accounting',
+    'Capital Markets',
+    'Financial Modeling',
+    'Investment Banking',
+    'Asset Management',
+    'Corporate Finance',
     'Machine Learning',
-    'Game Theory',
-    'Data Structures',
-    'Algorithms',
+    'Data Analytics',
+    'Valuation',
+    'Mergers and Acquisitions',
+    'Company and Industry Research',
     'Python',
     'Java',
+    'R',
+    'MATLAB',
+    'Microsoft Office',
+    'Leadership',
+    'Mentoring',
+    'Teaching',
+    'Community Outreach',
+  ],
+  award: ['NISA Investment Advisors Scholars Award', 'Beta Gamma Sigma', 'Dean\'s List'],
+  memberOf: [
+    { '@type': 'Organization', name: 'NISA Investment Advisors Scholars Award' },
+    { '@type': 'Organization', name: 'Beta Gamma Sigma' },
   ],
 };
 
@@ -94,9 +168,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="font-sans antialiased bg-background text-foreground">
-        <GridBackground />
         <AtmosphericBlobs />
-        <GrainOverlay />
 
         <ClientShell>
           <div className="flex flex-col min-h-screen relative" style={{ zIndex: 10 }}>

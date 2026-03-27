@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(npm run:*)",
-      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 3000 | Select-Object -ExpandProperty OwningProcess\")"
+      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 3000 | Select-Object -ExpandProperty OwningProcess\")",
+      "Bash(npm install:*)",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(cp -r public .next/standalone/public)",
+      "Bash(cp -r .next/static .next/standalone/.next/static)",
+      "Bash(powershell -Command \"Compress-Archive -Path ''.next/standalone/*'' -DestinationPath ''out.zip'' -Force\")",
+      "Bash(powershell -Command \":*)",
+      "Bash(npx next:*)"
     ]
   }
 }

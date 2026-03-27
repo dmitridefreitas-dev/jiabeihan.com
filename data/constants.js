@@ -1,125 +1,127 @@
-import { BookOpen, Brain, GraduationCap } from 'lucide-react';
+import { TrendingUp, Shield, BarChart3 } from 'lucide-react';
 
 export const targetRoles = [
-  'Math PhD Programs',
-  'Research Internships',
-  'Applied Mathematics Research',
-  'Machine Learning Research',
+  'Investment Banking',
+  'Capital Markets',
+  'Asset Management',
+  'Corporate Finance',
 ];
 
 export const competencies = [
   {
-    icon: BookOpen,
-    title: 'Mathematical Research',
-    description: 'Studying smooth manifolds, de Rham cohomology, and topological invariants under faculty supervision at WashU',
+    icon: TrendingUp,
+    title: 'Capital Markets & Underwriting',
+    description: 'Credit memo drafting, borrowing base analysis, financial modeling for asset-based finance deals across Retail, Industrials, Power & Utilities, and Energy sectors',
   },
   {
-    icon: Brain,
-    title: 'Machine Learning & AI',
-    description: 'Reinforcement learning, Q-learning, CNNs, SVMs, and Random Forests applied to game-theoretical and classification problems',
+    icon: Shield,
+    title: 'Finance & Banking',
+    description: 'Credit product analysis, financial statement evaluation, residential real estate underwriting, and client-facing credit recommendations',
   },
   {
-    icon: GraduationCap,
-    title: 'Computer Science Education',
-    description: 'Teaching assistant for 5 courses at WashU including ML, Data Structures, Video Game Programming, and Optimization',
+    icon: BarChart3,
+    title: 'Software Engineering & Research',
+    description: 'Machine learning algorithms for cellular pattern detection, Python and MATLAB data analysis, and biophotonics microscopy research',
   },
 ];
 
 export const timeline = [
   {
-    year: '2026 – Present',
-    title: 'de Rham Cohomology Research',
-    description: 'Studying smooth manifolds under Prof. Yanli Song; computing cohomology via Mayer–Vietoris sequences',
+    year: '2026',
+    title: 'Graduating — Washington University in St. Louis',
+    description: 'BS Double Major in Finance and Computer Science from Olin Business School. 4.00 GPA.',
+    type: 'education',
+  },
+  {
+    year: 'Jun 2025 – Aug 2025',
+    title: 'Capital Markets Summer Analyst — U.S. Bank',
+    description: 'Drafted credit memos for 6 ABF deals, built financial models across 8 deals, pitched findings for final credit approvals. Received return offer.',
+    type: 'finance',
+  },
+  {
+    year: 'Jul 2024 – Aug 2024',
+    title: 'Finance & Banking Intern — U.S. Bank',
+    description: 'Pitched credit product recommendations for aerospace client ($1.2M); implemented underwriting analysis for $30M residential real estate loan',
+    type: 'finance',
+  },
+  {
+    year: 'Jun 2023 – Aug 2023',
+    title: 'Software Engineering Research Assistant — Z-Lab for Biophotonics',
+    description: 'Implemented ML algorithms in Python and MATLAB to detect cellular movement patterns, discovering 10+ new cellular structures',
     type: 'research',
   },
   {
-    year: '2026 – Present',
-    title: 'Teaching Assistant — Video Game Programming (CSE4500)',
-    description: 'Assisting students with debugging and course concepts; evaluating homework submissions at WashU',
-    type: 'teaching',
-  },
-  {
-    year: '2023 – 2026',
+    year: '2022 – 2026',
     title: 'Washington University in St. Louis',
-    description: 'Double Major in Computer Science & Mathematics, McKelvey School of Engineering',
+    description: 'BS Finance & Computer Science — NISA Investment Advisors Scholars Award, Beta Gamma Sigma, Dean\'s List',
     type: 'education',
   },
   {
-    year: '2023 – 2025',
-    title: 'Evolution of Cooperation Research',
-    description: 'Co-authored paper in Physical Review E on conditional cooperators modeled via Q-learning',
-    type: 'research',
-  },
-  {
-    year: '2021 – 2023',
-    title: 'Culver Academies',
-    description: 'Cum Laude, Blue Key, Honors in CS & Mathematics, Unit Commander (43 cadets)',
-    type: 'education',
-  },
-  {
-    year: '2021 – 2022',
-    title: 'Letter Recognition ML Research',
-    description: 'Built SVC, Random Forest, and CNN models to classify alphabetical characters from historical documents',
-    type: 'research',
+    year: 'Sep 2022 – Present',
+    title: 'Business Leader — WashU Racing',
+    description: 'Managed $120K+ sponsorship budget, oversaw cost reporting for 70+ race car materials, led business strategy for FSAE competitions',
+    type: 'activity',
   },
 ];
 
 export const opportunityGroups = [
   {
-    category: 'Graduate Research',
-    roles: ['Mathematics PhD', 'Applied Mathematics PhD', 'Computer Science PhD'],
+    category: 'Investment Banking',
+    roles: ['Capital Markets', 'M&A Advisory', 'Asset-Based Finance'],
   },
   {
-    category: 'Research Internships',
-    roles: ['ML Research Intern', 'Applied Math Research', 'Computational Science'],
+    category: 'Asset Management',
+    roles: ['Credit Analysis', 'Fixed Income', 'Portfolio Strategy'],
   },
   {
-    category: 'Industry',
-    roles: ['Software Engineering Intern', 'Data Science Intern'],
+    category: 'Corporate Finance',
+    roles: ['Financial Analyst', 'Underwriting', 'Risk Management'],
   },
 ];
 
 export const contactInfo = {
-  email: 'f.jerry@wustl.edu',
-  phone: '(949)-709-6611',
+  email: 'jiabeihan01@gmail.com',
+  phone: '(314) 349-5729',
   location: 'Washington University in St. Louis',
   locationNote: 'St. Louis, MO',
 };
 
 export const socialLinks = {
-  linkedin: 'https://www.linkedin.com/in/xinshifeng/',
-  github: 'https://github.com/XinshiFeng',
-  arxiv: 'https://arxiv.org/abs/2502.07537',
+  linkedin: 'https://www.linkedin.com/in/jiabeihan12/',
+  github: 'https://github.com/jiabeihan12',
 };
 
 export const tickerTerms = [
-  'de Rham Cohomology',
-  'Reinforcement Learning',
-  'Smooth Manifolds',
-  'Q-Learning',
-  'Mayer–Vietoris Sequences',
-  'Convolutional Neural Networks',
-  'Game Theory',
-  'Topological Invariants',
-  'Support Vector Machines',
-  'Evolutionary Dynamics',
-  'Data Structures & Algorithms',
-  'Phase Transitions',
-  'Random Forests',
-  'Linear Algebra',
-  'Computer Vision',
+  'U.S. Bank',
+  'Goldman Sachs',
+  'J.P. Morgan',
+  'Morgan Stanley',
+  'Bank of America',
+  'Citi',
+  'Wells Fargo',
+  'Barclays',
+  'Deutsche Bank',
+  'UBS',
+  'Credit Suisse',
+  'Lazard',
+  'Evercore',
+  'Moelis & Company',
+  'Centerview Partners',
+  'Guggenheim Securities',
+  'NISA Investment Advisors',
+  'WashU Racing',
 ];
 
 export const kpiMetrics = [
-  { label: 'Research Projects', value: '4' },
-  { label: 'TA & Grader Roles', value: '5' },
-  { label: 'Published Paper', value: '1' },
-  { label: 'Programming Languages', value: '8+' },
+  { label: 'GPA', value: '4.00' },
+  { label: 'Internships', value: '3' },
+  { label: 'ABF Deals', value: '6+' },
+  { label: 'Technical Skills', value: '10+' },
 ];
 
 export const aboutKpiMetrics = [
-  { label: 'Research Projects', value: '4' },
-  { label: 'TA Semesters', value: '6+' },
-  { label: 'Dean\'s List Terms', value: '4' },
-  { label: 'Available', value: 'Fall 2027', condensed: true },
+  { label: 'GPA', value: '4.00' },
+  { label: 'Internships', value: '3' },
+  { label: 'Dean\'s List', value: 'All Semesters' },
+  { label: 'Available', value: 'May 2026', condensed: true },
 ];

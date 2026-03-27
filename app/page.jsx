@@ -1,4 +1,5 @@
-import HeroSection from '@/components/sections/HeroSection';
+import SplineHero from '@/components/sections/SplineHero';
+import InfoBanner from '@/components/sections/InfoBanner';
 import AcademicTicker from '@/components/sections/FinanceTicker';
 import KPIFullscreen from '@/components/sections/KPIFullscreen';
 import ProjectsShowcase from '@/components/sections/ProjectsShowcase';
@@ -9,17 +10,16 @@ import CTASection from '@/components/sections/CTASection';
 import SectionAtmosphere from '@/components/effects/SectionAtmosphere';
 
 export const metadata = {
-  title: 'Xinshi Feng — Computer Science & Mathematics',
+  title: 'Jiabei Han — Finance & Computer Science',
   description:
-    'Portfolio of Xinshi Feng — CS and Math double major at WashU, researcher in manifold theory and reinforcement learning. Available Fall 2027.',
+    'Portfolio of Jiabei (Jacob) Han — Double Major in Finance and Computer Science at WashU Olin Business School. Capital Markets Summer Analyst at U.S. Bank. 4.00 GPA.',
 };
 
 export default function Home() {
   return (
     <>
-      <SectionAtmosphere atmosphere="hero">
-        <HeroSection />
-      </SectionAtmosphere>
+      <SplineHero />
+      <InfoBanner />
       <AcademicTicker />
       <SectionAtmosphere atmosphere="work">
         <KPIFullscreen />
