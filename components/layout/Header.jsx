@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Linkedin, Mail, Sun, Moon } from 'lucide-react';
 import MagneticButton from '@/components/effects/MagneticButton';
 import { socialLinks, contactInfo } from '@/data/constants';
 
@@ -18,6 +18,18 @@ export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains('dark'));
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle('dark', next);
+    localStorage.setItem('theme', next ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -67,6 +79,38 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4 relative z-10">
+          <button
+            onClick={toggleTheme}
+            className="text-muted hover:text-accent transition-colors relative w-4 h-4 flex items-center justify-center"
+            aria-label="Toggle dark mode"
+            data-cursor="expand"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {dark ? (
+                <motion.span
+                  key="sun"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute"
+                >
+                  <Sun className="h-4 w-4" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="moon"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute"
+                >
+                  <Moon className="h-4 w-4" />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
           <a
             href={socialLinks.linkedin}
             target="_blank"

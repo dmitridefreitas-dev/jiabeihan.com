@@ -165,6 +165,8 @@ export default function RootLayout({ children }) {
       className={`${plusJakarta.variable} ${cormorant.variable} ${jetbrains.variable}`}
     >
       <head>
+        {/* Dark mode: read localStorage before paint to avoid flash */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark');})();` }} />
         {/* Suppress Spline runtime onFrame error — patch rAF so the error never fires */}
         <script dangerouslySetInnerHTML={{ __html: `(function(){
           var _raf = window.requestAnimationFrame;

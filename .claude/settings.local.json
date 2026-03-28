@@ -23,7 +23,16 @@
       "Bash(findstr \":300\")",
       "Bash(ls:*)",
       "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(list\\(d.get\\(''''exports'''',{}\\).keys\\(\\)\\)[:20]\\)\")",
-      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\(''''exports'''',{}\\), indent=2\\)\\)\")"
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\(''''exports'''',{}\\), indent=2\\)\\)\")",
+      "Bash(findstr :3003)",
+      "Bash(findstr LISTENING)",
+      "Bash(taskkill /PID 5880 /F)",
+      "Bash(taskkill:*)",
+      "Bash(rm scenedark.splinecode)",
+      "Bash(rm public/scenedark.splinecode)",
+      "Bash(cp \"scene\\(1\\).splinecode\" public/scenedark.splinecode)",
+      "Bash(cp \"scene \\(1\\).splinecode\" public/scenedark.splinecode)",
+      "Bash(rm \"scene \\(1\\).splinecode\")"
     ]
   }
 }

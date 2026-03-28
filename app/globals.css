@@ -16,6 +16,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
   }
 
   html {
@@ -30,6 +31,7 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    isolation: isolate;
   }
 
   ::selection {
@@ -92,6 +94,7 @@
     flex-direction: column;
     padding-top: 5rem;
     padding-bottom: 5rem;
+    contain: layout style;
   }
 
   /* Text sizes — font-weight baked in for maximum visibility */
@@ -474,6 +477,8 @@
   border: 1px solid transparent;
   background-clip: padding-box;
   position: relative;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .animated-border-card::before {
   content: '';
@@ -490,7 +495,7 @@
   mask-composite: exclude;
   animation: border-angle-rotate 6s linear infinite;
   pointer-events: none;
-  will-change: --border-angle;
+  will-change: --border-angle, transform;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -717,6 +722,32 @@ input:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visib
 .holo-filter-active {
   animation: holo-filter-bg-cycle 8s linear infinite !important;
   color: #FFFFFF !important;
+}
+
+/* ── Dark mode — full color invert on the html element ── */
+html.dark {
+  filter: invert(1);
+}
+/* Counter-invert media so images/canvas look natural */
+html.dark img,
+html.dark canvas,
+html.dark video,
+html.dark iframe {
+  filter: invert(1);
+}
+/* Dark mode scrollbar */
+html.dark ::-webkit-scrollbar-track { background: #0F0F15; }
+html.dark ::-webkit-scrollbar-thumb { background: rgba(204,0,34, 0.55); border-radius: 2px; }
+html.dark ::-webkit-scrollbar-thumb:hover { background: rgba(0,68,204, 0.7); }
+
+/* Hide atmospheric blobs — they invert to visible light circles on dark bg */
+html.dark .atm-blob-0,
+html.dark .atm-blob-1,
+html.dark .atm-blob-2,
+html.dark .atm-blob-3,
+html.dark .atm-blob-4,
+html.dark .paper-wash {
+  display: none;
 }
 
 /* ── Global weight overrides — Tailwind weight classes boosted then pulled back 10% ── */
