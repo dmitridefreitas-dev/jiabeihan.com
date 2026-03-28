@@ -230,7 +230,7 @@ function ProjectCard({ project, index, isActive }) {
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="relative z-10">
-          <h3 className="font-serif font-bold text-lg md:text-xl text-foreground leading-tight mb-2">
+          <h3 className="font-serif font-bold text-lg md:text-xl text-secondary leading-tight mb-2">
             {project.title}
           </h3>
           <p className="text-muted max-w-xs leading-relaxed font-mono text-xs uppercase tracking-wider">
@@ -279,7 +279,7 @@ export default function ProjectsShowcase() {
             >
               Featured Work
             </motion.p>
-            <h2 className="font-serif font-bold text-headline text-foreground will-change-transform">
+            <h2 className="font-serif font-bold text-headline text-secondary will-change-transform">
               <TextReveal splitBy="word" staggerDelay={0.07}>
                 Project Highlights
               </TextReveal>

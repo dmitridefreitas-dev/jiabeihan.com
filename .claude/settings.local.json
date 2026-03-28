@@ -10,7 +10,20 @@
       "Bash(cp -r .next/static .next/standalone/.next/static)",
       "Bash(powershell -Command \"Compress-Archive -Path ''.next/standalone/*'' -DestinationPath ''out.zip'' -Force\")",
       "Bash(powershell -Command \":*)",
-      "Bash(npx next:*)"
+      "Bash(npx next:*)",
+      "Bash(head -30 grep -n \"text-accent\\\\|gradient\\\\|color\\\\|font-bold\" C:/Users/dmitr/Downloads/Jiabeihan/jiabeihan.com-2/components/sections/CompetenciesSticky.jsx)",
+      "Bash(head -20 grep -n \"text-accent\\\\|gradient\\\\|color\" C:/Users/dmitr/Downloads/Jiabeihan/jiabeihan.com-2/components/sections/CTASection.jsx)",
+      "Bash(head -20 grep -n \"color\\\\|gradient\\\\|rgba\\(200\\\\|rgba\\(126\\\\|#C87F\\\\|#7ED4\\\\|text-accent\" C:/Users/dmitr/Downloads/Jiabeihan/jiabeihan.com-2/components/sections/SkillsHorizontal.jsx)",
+      "Bash(cd:*)",
+      "Bash(npx kill-port:*)",
+      "Bash(head -40 grep -n \"color\\\\|blue\\\\|accent\\\\|filter\\\\|activeCategory\\\\|ALL\\\\|FINANCE\\\\|background\" \"C:/Users/dmitr/Downloads/Jiabeihan/jiabeihan.com-2/components/sections/ProjectsContent.jsx\")",
+      "Bash(head -30 grep -n \"color\\\\|blue\\\\|accent\\\\|icon\\\\|Icon\" \"C:/Users/dmitr/Downloads/Jiabeihan/jiabeihan.com-2/app/contact/page.jsx\")",
+      "Bash(netstat -ano)",
+      "Bash(findstr \"LISTENING\")",
+      "Bash(findstr \":300\")",
+      "Bash(ls:*)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(list\\(d.get\\(''''exports'''',{}\\).keys\\(\\)\\)[:20]\\)\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\(''''exports'''',{}\\), indent=2\\)\\)\")"
     ]
   }
 }

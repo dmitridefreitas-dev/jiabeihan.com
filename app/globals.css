@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Typography Hierarchy:
+   text-foreground (#1C1C28) — page titles, hero text
+   text-secondary (#2E2E3D)  — section h2/h3, card titles
+   text-muted (#5A5A6E)      — body, descriptions, labels
+*/
+
 /* ─────────────────────────────────────────────────────────────────────────────
    BASE RESET & ROOT STYLES — ROYGBIV Holographic Theme
 ───────────────────────────────────────────────────────────────────────────── */
@@ -20,7 +26,7 @@
     background-color: #F0EDEA;
     color: #1C1C28;
     font-family: var(--font-inter), system-ui, sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -59,14 +65,14 @@
 
 /* Single-color text: explicit equal-time R→O→Y→G→B→I→V→R stops */
 @keyframes holo-hue-wave {
-  0%    { color: #FF0033; text-shadow: 0 0 10px rgba(255,0,51,0.5); }
-  14%   { color: #FF6600; text-shadow: 0 0 10px rgba(255,102,0,0.5); }
-  28%   { color: #EEB800; text-shadow: 0 0 16px rgba(238,184,0,0.7); }
-  43%   { color: #00BB33; text-shadow: 0 0 10px rgba(0,187,51,0.5); }
-  57%   { color: #0055EE; text-shadow: 0 0 10px rgba(0,85,238,0.5); }
-  71%   { color: #5500BB; text-shadow: 0 0 10px rgba(85,0,187,0.5); }
-  85%   { color: #BB00DD; text-shadow: 0 0 10px rgba(187,0,221,0.5); }
-  100%  { color: #FF0033; text-shadow: 0 0 10px rgba(255,0,51,0.5); }
+  0%    { color: #E61A42; text-shadow: 0 0 8px rgba(230,26,66,0.36); }
+  14%   { color: #E56B1A; text-shadow: 0 0 8px rgba(229,107,26,0.36); }
+  28%   { color: #D8AC1A; text-shadow: 0 0 10px rgba(216,172,26,0.48); }
+  43%   { color: #1AAF42; text-shadow: 0 0 8px rgba(26,175,66,0.36); }
+  57%   { color: #1A5DD8; text-shadow: 0 0 8px rgba(26,93,216,0.36); }
+  71%   { color: #5E1AAF; text-shadow: 0 0 8px rgba(94,26,175,0.36); }
+  85%   { color: #AF1ACA; text-shadow: 0 0 8px rgba(175,26,202,0.36); }
+  100%  { color: #E61A42; text-shadow: 0 0 8px rgba(230,26,66,0.36); }
 }
 
 /* Animated border */
@@ -89,10 +95,10 @@
   }
 
   /* Text sizes — font-weight baked in for maximum visibility */
-  .text-display    { font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.0;  letter-spacing: -0.03em; font-weight: 900; }
+  .text-display    { font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.0;  letter-spacing: -0.03em; font-weight: 800; }
   .text-headline   { font-size: clamp(1.2rem, 2vw, 1.75rem);    line-height: 1.05; letter-spacing: -0.02em; font-weight: 800; }
   .text-subhead    { font-size: clamp(0.95rem, 1.5vw, 1.2rem);  line-height: 1.15; letter-spacing: -0.01em; font-weight: 700; }
-  .text-body-fluid { font-size: clamp(0.8rem, 0.9vw, 0.95rem);  line-height: 1.65; font-weight: 600; }
+  .text-body-fluid { font-size: clamp(0.8rem, 0.9vw, 0.95rem);  line-height: 1.65; font-weight: 700; }
 
   /* ── ROYGBIV wave gradient text ──
      Gradient is 200% wide (R→O→Y→G→B→I→V→R, ends same as start).
@@ -100,22 +106,22 @@
      drop-shadow on the rendered pixels adds contrast on cream background. */
   .text-accent-gradient {
     background: linear-gradient(90deg,
-      #CC0022 0%,
-      #DD5500 14%,
-      #AA8800 28%,
-      #007733 43%,
-      #0044CC 57%,
-      #5500AA 71%,
-      #9900CC 85%,
-      #CC0022 100%
+      #E61A42 0%,
+      #E56B1A 14%,
+      #D8AC1A 28%,
+      #1AAF42 43%,
+      #1A5DD8 57%,
+      #5E1AAF 71%,
+      #AF1ACA 85%,
+      #E61A42 100%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 900;
-    filter: drop-shadow(0 1px 5px rgba(0,0,0,0.22));
-    animation: holo-wave 4s linear infinite;
+    filter: drop-shadow(0 1px 5px rgba(0,0,0,0.18));
+    animation: holo-wave 11s linear infinite;
   }
 
   .gpu { transform: translateZ(0); will-change: transform; }
@@ -125,10 +131,10 @@
   .nav-link {
     font-family: var(--font-jetbrains), monospace;
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.25em;
-    color: #4A4A5A;
+    color: #5A5A6E;
     text-decoration: none;
     position: relative;
     transition: color 0.2s;
@@ -144,8 +150,8 @@
     transition: width 0.25s ease;
   }
   .nav-link:hover, .nav-link.active {
-    color: #CC0022;
-    animation: holo-hue-wave 4s linear infinite;
+    color: #E61A42;
+    animation: holo-hue-wave 11s linear infinite;
   }
   .nav-link:hover::after, .nav-link.active::after {
     width: 100%;
@@ -267,18 +273,18 @@
      hue-rotate on the saturated base color (#CC0022 red) cycles
      R→O→Y→G→B→I→V→R with no jumps — one linear animation, 6 s. */
   .text-accent {
-    color: #CC0022;
-    animation: holo-hue-wave 4s linear infinite;
+    color: #E61A42;
+    animation: holo-hue-wave 11s linear infinite;
   }
   .hover\:text-accent:hover {
-    color: #CC0022;
-    animation: holo-hue-wave 4s linear infinite;
+    color: #E61A42;
+    animation: holo-hue-wave 11s linear infinite;
   }
   /* Active nav link used in Header */
   .holo-nav-active {
-    color: #CC0022;
+    color: #E61A42;
     font-weight: 700;
-    animation: holo-hue-wave 4s linear infinite;
+    animation: holo-hue-wave 11s linear infinite;
   }
 }
 
@@ -364,6 +370,7 @@
   animation: blob-drift-0 var(--blob-dur, 28s) ease-in-out infinite;
   pointer-events: none;
   filter: blur(60px);
+  will-change: transform;
 }
 .atm-blob-1 {
   position: fixed;
@@ -373,6 +380,7 @@
   animation: blob-drift-1 var(--blob-dur, 34s) ease-in-out infinite;
   pointer-events: none;
   filter: blur(70px);
+  will-change: transform;
 }
 .atm-blob-2 {
   position: fixed;
@@ -382,6 +390,7 @@
   animation: blob-drift-2 var(--blob-dur, 42s) ease-in-out infinite;
   pointer-events: none;
   filter: blur(80px);
+  will-change: transform;
 }
 .atm-blob-3 {
   position: fixed;
@@ -391,6 +400,7 @@
   animation: blob-drift-3 var(--blob-dur, 22s) ease-in-out infinite;
   pointer-events: none;
   filter: blur(60px);
+  will-change: transform;
 }
 .atm-blob-4 {
   position: fixed;
@@ -400,6 +410,7 @@
   animation: blob-drift-4 var(--blob-dur, 38s) ease-in-out infinite;
   pointer-events: none;
   filter: blur(70px);
+  will-change: transform;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -422,16 +433,19 @@
   position: absolute;
   animation: float-anim 7s ease-in-out infinite;
   pointer-events: none;
+  will-change: transform;
 }
 .float-geo-slow {
   position: absolute;
   animation: float-slow 9s ease-in-out infinite;
   pointer-events: none;
+  will-change: transform;
 }
 .float-geo-reverse {
   position: absolute;
   animation: float-reverse 8s ease-in-out infinite;
   pointer-events: none;
+  will-change: transform;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -468,14 +482,15 @@
   border-radius: inherit;
   padding: 1px;
   background: conic-gradient(from var(--border-angle),
-    #FF0033, #FF6600, #FFCC00, #00EE44, #0055FF, #7700FF, #FF00AA, #FF0033
+    #E61A42, #E56B1A, #D8AC1A, #1AAF42, #1A5DD8, #5E1AAF, #AF1ACA, #E61A42
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: border-angle-rotate 4s linear infinite;
+  animation: border-angle-rotate 6s linear infinite;
   pointer-events: none;
+  will-change: --border-angle;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -528,7 +543,7 @@
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: 0.5; transform: scale(0.8); }
 }
-.dot-pulse { animation: dot-pulse 2s ease-in-out infinite; }
+.dot-pulse { animation: dot-pulse 2s ease-in-out infinite; will-change: transform, opacity; }
 
 /* ─────────────────────────────────────────────────────────────────────────────
    SKILL BORDER PULSE
@@ -574,14 +589,14 @@ input:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visib
 
 /* Single-color holographic cycle */
 @keyframes holo-text-cycle {
-  0%   { color: #FF0033; text-shadow: 0 0 10px rgba(255,0,51,0.5); }
-  14%  { color: #FF6600; text-shadow: 0 0 10px rgba(255,102,0,0.5); }
-  28%  { color: #EEB800; text-shadow: 0 0 16px rgba(238,184,0,0.7); }
-  43%  { color: #00BB33; text-shadow: 0 0 10px rgba(0,187,51,0.5); }
-  57%  { color: #0055EE; text-shadow: 0 0 10px rgba(0,85,238,0.5); }
-  71%  { color: #5500BB; text-shadow: 0 0 10px rgba(85,0,187,0.5); }
-  85%  { color: #BB00DD; text-shadow: 0 0 10px rgba(187,0,221,0.5); }
-  100% { color: #FF0033; text-shadow: 0 0 10px rgba(255,0,51,0.5); }
+  0%   { color: #E61A42; text-shadow: 0 0 8px rgba(230,26,66,0.36); }
+  14%  { color: #E56B1A; text-shadow: 0 0 8px rgba(229,107,26,0.36); }
+  28%  { color: #D8AC1A; text-shadow: 0 0 10px rgba(216,172,26,0.48); }
+  43%  { color: #1AAF42; text-shadow: 0 0 8px rgba(26,175,66,0.36); }
+  57%  { color: #1A5DD8; text-shadow: 0 0 8px rgba(26,93,216,0.36); }
+  71%  { color: #5E1AAF; text-shadow: 0 0 8px rgba(94,26,175,0.36); }
+  85%  { color: #AF1ACA; text-shadow: 0 0 8px rgba(175,26,202,0.36); }
+  100% { color: #E61A42; text-shadow: 0 0 8px rgba(230,26,66,0.36); }
 }
 
 /* Gradient-text holographic wave — background scrolls left through the letters */
@@ -595,90 +610,119 @@ input:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visib
 .hover\:text-accent:hover,
 .holo-nav-active,
 .nav-link:hover,
-.nav-link.active {
-  animation: holo-text-cycle 3s linear infinite !important;
+.nav-link.active,
+.group:hover .group-hover\:text-accent {
+  animation: holo-text-cycle 8s linear infinite !important;
   font-weight: 800 !important;
+  transition: none !important;
 }
 
-/* ── Gradient text: vivid ROYGBIV wave scrolls through each letter ── */
+/* ── Gradient text: muted ROYGBIV wave scrolls through each letter ── */
 .text-accent-gradient {
   background: linear-gradient(90deg,
-    #FF0033 0%,
-    #FF6600 14%,
-    #EEB800 28%,
-    #00BB33 43%,
-    #0055EE 57%,
-    #5500BB 71%,
-    #BB00DD 85%,
-    #FF0033 100%
+    #E61A42 0%,
+    #E56B1A 14%,
+    #D8AC1A 28%,
+    #1AAF42 43%,
+    #1A5DD8 57%,
+    #5E1AAF 71%,
+    #AF1ACA 85%,
+    #E61A42 100%
   ) !important;
   background-size: 200% 100% !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
   font-weight: 900 !important;
-  filter: drop-shadow(0 1px 6px rgba(0,0,0,0.2)) !important;
-  animation: holo-gradient-wave 3s linear infinite !important;
+  filter: drop-shadow(0 1px 6px rgba(0,0,0,0.18)) !important;
+  animation: holo-gradient-wave 8s linear infinite !important;
+}
+
+/* ── Border-color cycling (KPI brackets, bordered elements) ── */
+@keyframes holo-border-cycle {
+  0%   { border-color: #E61A42; }
+  14%  { border-color: #E56B1A; }
+  28%  { border-color: #D8AC1A; }
+  43%  { border-color: #1AAF42; }
+  57%  { border-color: #1A5DD8; }
+  71%  { border-color: #5E1AAF; }
+  85%  { border-color: #AF1ACA; }
+  100% { border-color: #E61A42; }
+}
+.border-accent,
+.holo-border {
+  animation: holo-border-cycle 8s linear infinite !important;
 }
 
 /* ── Background-color cycling (dots, small fills) ── */
 @keyframes holo-dot-cycle {
-  0%   { background-color: #FF0033; box-shadow: 0 0 8px rgba(255,0,51,0.6); }
-  14%  { background-color: #FF6600; box-shadow: 0 0 8px rgba(255,102,0,0.6); }
-  28%  { background-color: #EEB800; box-shadow: 0 0 12px rgba(238,184,0,0.8); }
-  43%  { background-color: #00BB33; box-shadow: 0 0 8px rgba(0,187,51,0.6); }
-  57%  { background-color: #0055EE; box-shadow: 0 0 8px rgba(0,85,238,0.6); }
-  71%  { background-color: #5500BB; box-shadow: 0 0 8px rgba(85,0,187,0.6); }
-  85%  { background-color: #BB00DD; box-shadow: 0 0 8px rgba(187,0,221,0.6); }
-  100% { background-color: #FF0033; box-shadow: 0 0 8px rgba(255,0,51,0.6); }
+  0%   { background-color: #E61A42; box-shadow: 0 0 6px rgba(230,26,66,0.42); }
+  14%  { background-color: #E56B1A; box-shadow: 0 0 6px rgba(229,107,26,0.42); }
+  28%  { background-color: #D8AC1A; box-shadow: 0 0 8px rgba(216,172,26,0.54); }
+  43%  { background-color: #1AAF42; box-shadow: 0 0 6px rgba(26,175,66,0.42); }
+  57%  { background-color: #1A5DD8; box-shadow: 0 0 6px rgba(26,93,216,0.42); }
+  71%  { background-color: #5E1AAF; box-shadow: 0 0 6px rgba(94,26,175,0.42); }
+  85%  { background-color: #AF1ACA; box-shadow: 0 0 6px rgba(175,26,202,0.42); }
+  100% { background-color: #E61A42; box-shadow: 0 0 6px rgba(230,26,66,0.42); }
 }
 .holo-dot {
-  animation: holo-dot-cycle 3s linear infinite !important;
+  animation: holo-dot-cycle 8s linear infinite !important;
+  will-change: background-color, box-shadow;
 }
 
-/* ── Line / bar cycling (timeline fill line) ── */
+/* ── Line / bar cycling (timeline fill line, proficiency bars) ── */
 @keyframes holo-line-cycle {
-  0%   { background: #FF0033 !important; box-shadow: 0 0 8px rgba(255,0,51,0.5); }
-  14%  { background: #FF6600 !important; box-shadow: 0 0 8px rgba(255,102,0,0.5); }
-  28%  { background: #EEB800 !important; box-shadow: 0 0 12px rgba(238,184,0,0.7); }
-  43%  { background: #00BB33 !important; box-shadow: 0 0 8px rgba(0,187,51,0.5); }
-  57%  { background: #0055EE !important; box-shadow: 0 0 8px rgba(0,85,238,0.5); }
-  71%  { background: #5500BB !important; box-shadow: 0 0 8px rgba(85,0,187,0.5); }
-  85%  { background: #BB00DD !important; box-shadow: 0 0 8px rgba(187,0,221,0.5); }
-  100% { background: #FF0033 !important; box-shadow: 0 0 8px rgba(255,0,51,0.5); }
+  0%   { background-color: #E61A42; box-shadow: 0 0 4px rgba(230,26,66,0.36); }
+  14%  { background-color: #E56B1A; box-shadow: 0 0 4px rgba(229,107,26,0.36); }
+  28%  { background-color: #D8AC1A; box-shadow: 0 0 6px rgba(216,172,26,0.48); }
+  43%  { background-color: #1AAF42; box-shadow: 0 0 4px rgba(26,175,66,0.36); }
+  57%  { background-color: #1A5DD8; box-shadow: 0 0 4px rgba(26,93,216,0.36); }
+  71%  { background-color: #5E1AAF; box-shadow: 0 0 4px rgba(94,26,175,0.36); }
+  85%  { background-color: #AF1ACA; box-shadow: 0 0 4px rgba(175,26,202,0.36); }
+  100% { background-color: #E61A42; box-shadow: 0 0 4px rgba(230,26,66,0.36); }
 }
 .holo-line {
-  animation: holo-line-cycle 3s linear infinite !important;
+  background-color: #E61A42;
+  animation: holo-line-cycle 8s linear infinite !important;
+  will-change: background-color, box-shadow;
 }
 
 /* ── Bracket symbols (low-opacity holo) ── */
 @keyframes holo-bracket-cycle {
-  0%   { color: rgba(255,0,51,0.4); }
-  14%  { color: rgba(255,102,0,0.4); }
-  28%  { color: rgba(238,184,0,0.5); }
-  43%  { color: rgba(0,187,51,0.4); }
-  57%  { color: rgba(0,85,238,0.4); }
-  71%  { color: rgba(85,0,187,0.4); }
-  85%  { color: rgba(187,0,221,0.4); }
-  100% { color: rgba(255,0,51,0.4); }
+  0%   { color: rgba(204,51,82,0.25); }
+  14%  { color: rgba(204,112,51,0.25); }
+  28%  { color: rgba(194,161,51,0.3); }
+  43%  { color: rgba(51,163,82,0.25); }
+  57%  { color: rgba(51,102,194,0.25); }
+  71%  { color: rgba(102,51,163,0.25); }
+  85%  { color: rgba(163,51,184,0.25); }
+  100% { color: rgba(204,51,82,0.25); }
 }
 .holo-bracket {
-  animation: holo-bracket-cycle 3s linear infinite !important;
+  animation: holo-bracket-cycle 8s linear infinite !important;
+  will-change: color;
 }
 
 /* ── Active filter button (background + border cycle) ── */
 @keyframes holo-filter-bg-cycle {
-  0%   { background-color: #FF0033; border-color: #FF0033; }
-  14%  { background-color: #FF6600; border-color: #FF6600; }
-  28%  { background-color: #EEB800; border-color: #EEB800; }
-  43%  { background-color: #00BB33; border-color: #00BB33; }
-  57%  { background-color: #0055EE; border-color: #0055EE; }
-  71%  { background-color: #5500BB; border-color: #5500BB; }
-  85%  { background-color: #BB00DD; border-color: #BB00DD; }
-  100% { background-color: #FF0033; border-color: #FF0033; }
+  0%   { background-color: #E61A42; border-color: #E61A42; }
+  14%  { background-color: #E56B1A; border-color: #E56B1A; }
+  28%  { background-color: #D8AC1A; border-color: #D8AC1A; }
+  43%  { background-color: #1AAF42; border-color: #1AAF42; }
+  57%  { background-color: #1A5DD8; border-color: #1A5DD8; }
+  71%  { background-color: #5E1AAF; border-color: #5E1AAF; }
+  85%  { background-color: #AF1ACA; border-color: #AF1ACA; }
+  100% { background-color: #E61A42; border-color: #E61A42; }
 }
 .holo-filter-active {
-  animation: holo-filter-bg-cycle 3s linear infinite !important;
+  animation: holo-filter-bg-cycle 8s linear infinite !important;
   color: #FFFFFF !important;
 }
+
+/* ── Global weight overrides — Tailwind weight classes boosted then pulled back 10% ── */
+.font-medium   { font-weight: 600 !important; }
+.font-semibold { font-weight: 700 !important; }
+.font-bold     { font-weight: 800 !important; }
+.font-extrabold{ font-weight: 800 !important; }
+.font-black    { font-weight: 900 !important; }
 

@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans, Cormorant_Garamond, JetBrains_Mono } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AtmosphericBlobs from '@/components/effects/AtmosphericBlobs';
@@ -6,14 +6,17 @@ import ClientShell from '@/components/layout/ClientShell';
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-inter',
   display: 'swap',
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
   variable: '--font-playfair',
   display: 'swap',
 });
@@ -159,9 +162,28 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}
+      className={`${plusJakarta.variable} ${cormorant.variable} ${jetbrains.variable}`}
     >
       <head>
+        {/* Suppress Spline runtime onFrame error — patch rAF so the error never fires */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){
+          var _raf = window.requestAnimationFrame;
+          window.requestAnimationFrame = function(cb) {
+            return _raf.call(window, function(ts) {
+              try { cb(ts); } catch(e) {
+                if (!e || !e.message || e.message.indexOf("reading 'position'") === -1) throw e;
+              }
+            });
+          };
+          window.onerror = function(msg,s,l,c,err) {
+            var m = (err&&err.message)||msg||'';
+            if (m.indexOf("reading 'position'") !== -1) return true;
+          };
+          window.addEventListener('error', function(e) {
+            var m = (e.error&&e.error.message)||e.message||'';
+            if (m.indexOf("reading 'position'") !== -1) { e.preventDefault(); e.stopImmediatePropagation(); }
+          }, true);
+        })();`}} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

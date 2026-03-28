@@ -61,12 +61,6 @@ export default function Header() {
                 data-cursor="expand"
               >
                 {link.label}
-                {isActive && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-accent"
-                  />
-                )}
               </Link>
             );
           })}

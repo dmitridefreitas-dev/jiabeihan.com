@@ -16,7 +16,7 @@ export default function InfoBanner() {
         className="flex whitespace-nowrap"
         style={{
           width: 'max-content',
-          animation: 'scroll-right 45s linear infinite',
+          animation: 'scroll-right 80s linear infinite',
           willChange: 'transform',
         }}
       >

@@ -39,15 +39,8 @@ function CompCard({ comp, index }) {
       transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
       className="group relative overflow-hidden"
     >
-      {/* Sweep-in top border */}
-      <motion.div
-        className="absolute top-0 left-0 right-0 h-px origin-left z-20"
-        style={{ background: 'linear-gradient(90deg, #CC0022, #0044CC, transparent)' }}
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.1, delay: index * 0.15 + 0.35, ease: [0.22, 1, 0.36, 1] }}
-      />
+      {/* Top border — always visible, holo animated */}
+      <div className="absolute top-0 left-0 right-0 h-px z-20 holo-line" style={{ opacity: 0.7 }} />
 
 
       <div className="relative border border-[#E0DCD7] bg-[#F8F6F4]/60 p-8 rounded-xl overflow-hidden transition-colors duration-500 group-hover:border-accent/25">
@@ -92,7 +85,7 @@ function CompCard({ comp, index }) {
           <span className="font-mono text-xl leading-none select-none holo-bracket">]</span>
         </div>
 
-        <h3 className="font-serif font-bold text-lg text-foreground mb-3 leading-tight">
+        <h3 className="font-serif font-bold text-2xl text-accent mb-3 leading-tight">
           {comp.title}
         </h3>
 

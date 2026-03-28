@@ -26,7 +26,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
                 Published
               </span>
             )}
-            <DialogTitle className="text-xl font-serif leading-tight">{project.title}</DialogTitle>
+            <DialogTitle className="text-xl font-serif leading-tight text-secondary">{project.title}</DialogTitle>
           </div>
           {project.journal && (
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent mt-1">

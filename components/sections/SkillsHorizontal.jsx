@@ -15,7 +15,7 @@ function SkillCard({ skill, onClick, className = '' }) {
       <p className="font-mono text-xs uppercase tracking-[0.35em] text-accent mb-3">
         {skill.category}
       </p>
-      <h3 className="font-serif font-bold text-base md:text-lg text-foreground mb-1.5 group-hover:text-accent transition-colors duration-300">
+      <h3 className="font-serif font-bold text-base md:text-lg text-secondary mb-1.5 group-hover:text-accent transition-colors duration-300">
         {skill.name}
       </h3>
       <p className="text-xs text-muted max-w-xs leading-relaxed">

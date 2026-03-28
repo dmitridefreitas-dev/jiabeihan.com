@@ -1,5 +1,6 @@
 'use client';
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import TextReveal from '@/components/effects/TextReveal';
 import MagneticButton from '@/components/effects/MagneticButton';
@@ -68,14 +69,10 @@ function InterestCard({ interest, index }) {
       transition={{ duration: 0.6, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
       className="group relative overflow-hidden rounded-xl"
     >
-      {/* Top border sweep */}
-      <motion.div
-        className="absolute top-0 left-0 right-0 h-px origin-left z-20"
-        style={{ background: 'linear-gradient(90deg, transparent, #CC0022, #0044CC, transparent)' }}
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2, delay: index * 0.12 + 0.3, ease: [0.22, 1, 0.36, 1] }}
+      {/* Top border — always visible, holo animated */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px z-20 holo-line"
+        style={{ opacity: 0.7 }}
       />
 
       <div className="relative border border-[#E0DCD7] bg-[#F8F6F4]/60 p-7 rounded-xl overflow-hidden transition-colors duration-500 group-hover:border-accent/25 flex gap-5 items-start">
@@ -107,7 +104,7 @@ function InterestCard({ interest, index }) {
         </div>
 
         <div className="relative z-10">
-          <h3 className="font-serif font-bold text-base text-foreground mb-1.5 group-hover:text-accent/90 transition-colors">
+          <h3 className="font-serif font-bold text-xl text-accent mb-2 leading-tight">
             {interest.title}
           </h3>
           <p className="text-sm text-muted leading-relaxed">
@@ -132,6 +129,25 @@ function InterestCard({ interest, index }) {
 export default function AboutContent() {
   const [selectedExperience, setSelectedExperience] = useState(null);
 
+  // 3D photo tilt
+  const photoRef = useRef(null);
+  const photoMouseX = useMotionValue(0);
+  const photoMouseY = useMotionValue(0);
+  const photoSpringX = useSpring(photoMouseX, { stiffness: 80, damping: 22 });
+  const photoSpringY = useSpring(photoMouseY, { stiffness: 80, damping: 22 });
+  const photoRotateX = useTransform(photoSpringY, [-0.5, 0.5], [8, -8]);
+  const photoRotateY = useTransform(photoSpringX, [-0.5, 0.5], [-10, 10]);
+  const photoGlossX = useTransform(photoSpringX, [-0.5, 0.5], ['20%', '80%']);
+  const photoGlossY = useTransform(photoSpringY, [-0.5, 0.5], ['20%', '80%']);
+
+  const handlePhotoMouseMove = (e) => {
+    const rect = photoRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    photoMouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    photoMouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+  const handlePhotoMouseLeave = () => { photoMouseX.set(0); photoMouseY.set(0); };
+
   return (
     <>
       <section
@@ -139,7 +155,68 @@ export default function AboutContent() {
         aria-label="About hero"
       >
 
-        <h1 className="font-serif font-bold text-display text-foreground will-change-transform text-balance">
+        {/* Portrait — right-leaning parallelogram, 3D tilt */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-10 mx-auto"
+          style={{ width: 'min(420px, 90vw)', skewX: '-7deg' }}
+        >
+          <motion.div
+            ref={photoRef}
+            onMouseMove={handlePhotoMouseMove}
+            onMouseLeave={handlePhotoMouseLeave}
+            style={{ rotateX: photoRotateX, rotateY: photoRotateY, transformStyle: 'preserve-3d', transformPerspective: 1000, borderRadius: '4px', overflow: 'hidden' }}
+            className="animated-border-card"
+          >
+            <div style={{ borderRadius: '4px', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', width: '100%', height: '300px' }}>
+                <Image
+                  src="/jiabeiphoto.jpg"
+                  alt="Jiabei Han"
+                  fill
+                  style={{}}
+                  className="object-cover object-center"
+                  priority
+                />
+                {/* Mouse-tracked gloss highlight */}
+                <motion.div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: useTransform(
+                      [photoGlossX, photoGlossY],
+                      ([x, y]) =>
+                        `radial-gradient(320px circle at ${x} ${y}, rgba(255,255,255,0.14) 0%, transparent 65%)`
+                    ),
+                  }}
+                  aria-hidden="true"
+                />
+                {/* Holo tint overlay */}
+                <div
+                  style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(160deg, rgba(230,26,66,0.07) 0%, transparent 50%, rgba(26,93,216,0.07) 100%)',
+                    mixBlendMode: 'overlay', pointerEvents: 'none',
+                  }}
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+          </motion.div>
+          {/* Floating glow beneath */}
+          <div
+            style={{
+              position: 'absolute', bottom: '-14px', left: '5%', right: '5%',
+              height: '28px',
+              background: 'radial-gradient(ellipse, rgba(26,93,216,0.25) 0%, transparent 70%)',
+              filter: 'blur(12px)', pointerEvents: 'none',
+            }}
+            aria-hidden="true"
+          />
+        </motion.div>
+
+        <h1 className="font-serif font-bold text-display text-foreground will-change-transform text-balance pb-3">
           <TextReveal splitBy="word" delay={0.3} staggerDelay={0.1}>
             Jiabei Han
           </TextReveal>
@@ -244,13 +321,13 @@ export default function AboutContent() {
                 <p className="font-mono text-xs uppercase tracking-[0.25em] mb-2 text-accent">
                   {exp.date}
                 </p>
-                <h3 className="font-serif font-bold text-base md:text-lg text-foreground mb-1 group-hover:text-accent transition-colors leading-snug">
+                <h3 className="font-serif font-bold text-lg md:text-xl text-secondary mb-1 group-hover:text-accent transition-colors leading-snug">
                   {exp.title}
                 </h3>
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-2">
                   {exp.organization}
                 </p>
-                <p className="text-[12px] text-muted leading-relaxed max-w-sm line-clamp-2">
+                <p className="text-sm text-muted leading-relaxed max-w-sm line-clamp-2">
                   {exp.shortDescription}
                 </p>
               </motion.article>
@@ -285,7 +362,7 @@ export default function AboutContent() {
                   <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent mb-1.5">
                     {edu.years}
                   </p>
-                  <h3 className="font-serif font-bold text-base md:text-lg text-foreground mb-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl text-secondary mb-1">
                     {edu.school}
                   </h3>
                   {edu.department && (
@@ -342,13 +419,13 @@ export default function AboutContent() {
                   <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent mb-2">
                     {exp.date}
                   </p>
-                  <h3 className="font-serif font-bold text-lg md:text-xl text-foreground mb-1 group-hover:text-accent transition-colors leading-snug">
+                  <h3 className="font-serif font-bold text-lg md:text-xl text-secondary mb-1 group-hover:text-accent transition-colors leading-snug">
                     {exp.title}
                   </h3>
                   <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted mb-3">
                     {exp.organization}
                   </p>
-                  <p className="text-[13px] text-muted leading-relaxed max-w-md line-clamp-2">
+                  <p className="text-sm text-muted leading-relaxed max-w-md line-clamp-2">
                     {exp.shortDescription}
                   </p>
                 </motion.article>
@@ -380,14 +457,13 @@ export default function AboutContent() {
                   <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted">
                     {cat.name}
                   </p>
-                  <span className="font-mono text-xs text-accent/70">
+                  <span className="font-mono text-xs text-accent">
                     {cat.proficiency}%
                   </span>
                 </div>
-                <div className="h-[2px] bg-surface rounded">
+                <div className="h-[3px] bg-border rounded">
                   <motion.div
-                    className="h-full rounded"
-                    style={{ background: 'linear-gradient(90deg, #CC0022, #0044CC)' }}
+                    className="h-full rounded holo-line"
                     initial={{ width: 0 }}
                     whileInView={{ width: `${cat.proficiency}%` }}
                     viewport={{ once: true }}
@@ -410,7 +486,7 @@ export default function AboutContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="font-serif italic text-subhead text-foreground leading-relaxed"
+            className="font-serif italic text-subhead text-secondary leading-relaxed"
           >
             &ldquo;The stock market is a device for transferring money from the impatient to the patient.&rdquo;
           </motion.p>
@@ -449,7 +525,7 @@ export default function AboutContent() {
         className="section-full flex-col text-center px-6"
         aria-label="Connect"
       >
-        <h2 className="font-serif font-bold text-headline text-foreground text-balance mb-7 will-change-transform">
+        <h2 className="font-serif font-bold text-headline text-secondary text-balance mb-7 will-change-transform">
           <TextReveal splitBy="word" staggerDelay={0.08}>
             Let&apos;s Connect
           </TextReveal>

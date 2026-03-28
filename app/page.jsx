@@ -1,13 +1,21 @@
-import SplineHero from '@/components/sections/SplineHero';
+import dynamic from 'next/dynamic';
+
+const SplineHero = dynamic(() => import('@/components/sections/SplineHero'), {
+  ssr: false,
+  loading: () => (
+    <div style={{ width: '100%', height: '100vh', background: 'linear-gradient(135deg, #F0EDEA 0%, #E8E4E0 100%)' }} />
+  ),
+});
 import InfoBanner from '@/components/sections/InfoBanner';
 import AcademicTicker from '@/components/sections/FinanceTicker';
-import KPIFullscreen from '@/components/sections/KPIFullscreen';
-import ProjectsShowcase from '@/components/sections/ProjectsShowcase';
-import SkillsHorizontal from '@/components/sections/SkillsHorizontal';
-import CompetenciesSticky from '@/components/sections/CompetenciesSticky';
-import TimelineScroll from '@/components/sections/TimelineScroll';
-import CTASection from '@/components/sections/CTASection';
 import SectionAtmosphere from '@/components/effects/SectionAtmosphere';
+
+const KPIFullscreen = dynamic(() => import('@/components/sections/KPIFullscreen'));
+const ProjectsShowcase = dynamic(() => import('@/components/sections/ProjectsShowcase'));
+const SkillsHorizontal = dynamic(() => import('@/components/sections/SkillsHorizontal'));
+const CompetenciesSticky = dynamic(() => import('@/components/sections/CompetenciesSticky'));
+const TimelineScroll = dynamic(() => import('@/components/sections/TimelineScroll'));
+const CTASection = dynamic(() => import('@/components/sections/CTASection'));
 
 export const metadata = {
   title: 'Jiabei Han — Finance & Computer Science',

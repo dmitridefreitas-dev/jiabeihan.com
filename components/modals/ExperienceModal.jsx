@@ -26,7 +26,7 @@ export default function ExperienceModal({ experience, isOpen, onClose }) {
               <Badge variant="secondary" className="text-xs capitalize">{experience.type}</Badge>
             )}
           </div>
-          <DialogTitle className="font-serif leading-snug">{experience.title}</DialogTitle>
+          <DialogTitle className="font-serif text-xl leading-snug text-secondary">{experience.title}</DialogTitle>
           <DialogDescription>
             {experience.role} &middot; {experience.organization}
           </DialogDescription>

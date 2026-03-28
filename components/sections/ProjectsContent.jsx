@@ -34,7 +34,7 @@ function ProjectRow({ project, index, onOpen }) {
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3 className="font-serif font-bold text-lg md:text-xl text-foreground group-hover:text-accent transition-colors leading-snug mb-2">
+          <h3 className="font-serif font-bold text-lg md:text-xl text-secondary group-hover:text-accent transition-colors leading-snug mb-2">
             {project.title}
           </h3>
           <p className="text-sm text-muted leading-relaxed max-w-2xl">
@@ -44,7 +44,7 @@ function ProjectRow({ project, index, onOpen }) {
             {project.tech.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="font-mono text-xs uppercase tracking-[0.15em] text-muted border border-border rounded px-2 py-0.5"
+                className="font-mono text-xs uppercase tracking-[0.2em] text-accent bg-surface border border-accent/25 rounded px-2 py-1"
               >
                 {tech}
               </span>
@@ -160,7 +160,7 @@ export default function ProjectsContent() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className={`font-mono text-xs uppercase tracking-[0.25em] px-4 py-2 rounded-lg border transition-all ${activeCategory === cat ? 'holo-filter-active' : ''}`}
-                style={activeCategory === cat ? {} : { color: '#4A4A5A', borderColor: '#E0DCD7' }}
+                style={activeCategory === cat ? {} : { color: '#5A5A6E', borderColor: '#E0DCD7' }}
                 data-cursor="expand"
               >
                 {cat}

@@ -40,16 +40,14 @@ export default function ClientShell({ children }) {
     // Suppress Spline runtime onFrame errors (scene object loses 'position'
     // reference during the animation loop). We match on the error message
     // and stack frame name since webpack bundles obscure the source path.
-    const isSplineFrameError = (error) => {
-      if (!error) return false;
-      const msg = error.message || '';
-      const stack = error.stack || '';
+    const isSplineError = (error, messageStr) => {
+      const msg = (error && error.message) || messageStr || '';
       return msg.includes("reading 'position'");
     };
 
     // Capture-phase listener runs before Next.js dev overlay listener.
     const handler = (event) => {
-      if (isSplineFrameError(event.error)) {
+      if (isSplineError(event.error, event.message)) {
         event.preventDefault();
         event.stopImmediatePropagation();
       }
@@ -59,7 +57,7 @@ export default function ClientShell({ children }) {
     // Also patch window.onerror — returning true suppresses the error entirely.
     const origOnError = window.onerror;
     window.onerror = (message, source, lineno, colno, error) => {
-      if (isSplineFrameError(error)) return true;
+      if (isSplineError(error, message)) return true;
       return origOnError ? origOnError.call(window, message, source, lineno, colno, error) : false;
     };
 

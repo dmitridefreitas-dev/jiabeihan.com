@@ -240,7 +240,6 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="md:sticky md:top-28"
           >
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-muted mb-10">
               Send a Message

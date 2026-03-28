@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
           <div>
-            <p className="font-serif text-lg font-bold text-foreground">Jiabei Han</p>
+            <p className="font-serif text-lg font-bold text-secondary">Jiabei Han</p>
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-muted mt-1">
               Finance &amp; Computer Science · WashU
             </p>

@@ -71,8 +71,8 @@ export default function FooterMeters() {
           </div>
           <div className="h-[2px] bg-surface rounded-full overflow-hidden">
             <motion.div
-              className="h-full rounded-full"
-              style={{ background: meter.color, opacity: 0.5 }}
+              className="h-full rounded-full holo-line"
+              style={{ opacity: 0.7 }}
               animate={{ width: `${values[i]}%` }}
               transition={{ duration: 1.2, ease: 'easeInOut' }}
             />

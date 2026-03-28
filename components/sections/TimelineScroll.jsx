@@ -34,10 +34,10 @@ function Entry({ entry, align = 'left' }) {
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted/60 leading-none">
         {entry.year}
       </p>
-      <h3 className="font-serif font-bold text-base md:text-lg text-foreground leading-snug max-w-[260px]">
+      <h3 className="font-serif font-bold text-base md:text-lg text-secondary leading-snug max-w-[260px]">
         {entry.title}
       </h3>
-      <p className="text-xs text-muted/70 leading-relaxed max-w-[260px] line-clamp-2">
+      <p className="text-sm text-muted leading-relaxed max-w-[260px] line-clamp-2">
         {entry.description}
       </p>
     </motion.div>
@@ -68,14 +68,20 @@ export default function TimelineScroll() {
       <div className="relative max-w-3xl mx-auto">
         {/* Ghost center line */}
         <div
-          className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
-          style={{ background: 'rgba(0,68,204,0.08)' }}
+          className="absolute top-0 bottom-0 w-px"
+          style={{ left: 'calc(50% - 0.5px)', background: 'rgba(0,68,204,0.08)' }}
         />
-        {/* Animated fill line */}
+        {/* Animated fill line — glass tube */}
         <motion.div
-          className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 origin-top holo-line"
-          style={{ scaleY: lineScaleY }}
-        />
+          className="absolute top-0 bottom-0 w-[3px] origin-top"
+          style={{ scaleY: lineScaleY, left: 'calc(50% - 1.5px)' }}
+        >
+          <div className="absolute inset-0 holo-line rounded-full" />
+          <div
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%)' }}
+          />
+        </motion.div>
 
         <div className="flex flex-col">
           {Array.from({ length: rows }).map((_, rowIdx) => {

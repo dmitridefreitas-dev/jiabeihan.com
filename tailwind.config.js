@@ -10,9 +10,10 @@ module.exports = {
       colors: {
         background: '#F0EDEA',
         foreground: '#1C1C28',
+        secondary: '#2E2E3D',
         muted: {
-          DEFAULT: '#4A4A5A',
-          foreground: '#4A4A5A',
+          DEFAULT: '#5A5A6E',
+          foreground: '#5A5A6E',
         },
         accent: {
           DEFAULT: '#CC0022',
@@ -43,10 +44,10 @@ module.exports = {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        'display':    ['clamp(1.75rem,3.5vw,2.75rem)', { lineHeight: '1.0',  letterSpacing: '-0.03em', fontWeight: '900' }],
-        'headline':   ['clamp(1.2rem,2vw,1.75rem)',    { lineHeight: '1.05', letterSpacing: '-0.02em', fontWeight: '800' }],
-        'subhead':    ['clamp(0.95rem,1.5vw,1.2rem)',  { lineHeight: '1.15', letterSpacing: '-0.01em', fontWeight: '700' }],
-        'body-fluid': ['clamp(0.8rem,0.9vw,0.95rem)',  { lineHeight: '1.65', fontWeight: '600' }],
+        'display':    ['clamp(2.2rem,5vw,4rem)',        { lineHeight: '1.05', letterSpacing: '-0.02em', fontWeight: '800' }],
+        'headline':   ['clamp(1.5rem,2.8vw,2.5rem)',   { lineHeight: '1.1',  letterSpacing: '-0.02em', fontWeight: '800' }],
+        'subhead':    ['clamp(1.1rem,1.8vw,1.5rem)',   { lineHeight: '1.2',  letterSpacing: '-0.01em', fontWeight: '700' }],
+        'body-fluid': ['clamp(0.85rem,1vw,1rem)',       { lineHeight: '1.7',  fontWeight: '600' }],
       },
       keyframes: {
         'ticker-scroll': {
