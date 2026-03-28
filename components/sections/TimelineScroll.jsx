@@ -4,17 +4,17 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { timeline } from '@/data/constants';
 
 const TYPE_COLORS = {
-  finance:   '#8B5CF6',
-  research:  '#8B5CF6',
-  education: '#8B5CF6',
-  activity:  '#8B5CF6',
+  finance:   '#C87F96',
+  research:  '#C87F96',
+  education: '#C87F96',
+  activity:  '#C87F96',
 };
 
 const left  = timeline.filter((e) => e.type !== 'finance');
 const right = timeline.filter((e) => e.type === 'finance');
 
 function Entry({ entry, align = 'left' }) {
-  const dot = TYPE_COLORS[entry.type] || '#8B5CF6';
+  const dot = TYPE_COLORS[entry.type] || '#C87F96';
   const isRight = align === 'right';
 
   return (
@@ -69,15 +69,15 @@ export default function TimelineScroll() {
         {/* Ghost center line */}
         <div
           className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
-          style={{ background: 'rgba(139,92,246,0.08)' }}
+          style={{ background: 'rgba(200,127,150,0.08)' }}
         />
         {/* Animated fill line */}
         <motion.div
           className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 origin-top"
           style={{
-            background: 'rgba(139,92,246,0.7)',
+            background: 'rgba(200,127,150,0.7)',
             scaleY: lineScaleY,
-            boxShadow: '0 0 8px rgba(139,92,246,0.4)',
+            boxShadow: '0 0 8px rgba(200,127,150,0.4)',
           }}
         />
 
@@ -85,7 +85,7 @@ export default function TimelineScroll() {
           {Array.from({ length: rows }).map((_, rowIdx) => {
             const leftEntry  = left[rowIdx];
             const rightEntry = right[rowIdx];
-            const dotColor   = TYPE_COLORS[leftEntry?.type || rightEntry?.type] || '#8B5CF6';
+            const dotColor   = TYPE_COLORS[leftEntry?.type || rightEntry?.type] || '#C87F96';
 
             return (
               <div key={rowIdx} className="grid grid-cols-[1fr_auto_1fr] items-center gap-x-8 py-9">
@@ -97,7 +97,7 @@ export default function TimelineScroll() {
                   className="w-3.5 h-3.5 rounded-full border-2 flex-shrink-0 z-10"
                   style={{
                     backgroundColor: dotColor,
-                    borderColor: '#000000',
+                    borderColor: '#F0EDEA',
                     boxShadow: `0 0 12px ${dotColor}70`,
                   }}
                   initial={{ scale: 0 }}

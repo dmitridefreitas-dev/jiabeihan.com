@@ -35,8 +35,8 @@ export default function CounterDisplay({ value, label, delay = 0 }) {
           ref={ref}
           className="font-serif font-bold text-display gpu relative block"
           style={{
-            color: '#F9FAFB',
-            textShadow: done ? '0 0 20px rgba(139,92,246,0.2)' : 'none',
+            color: '#1C1C28',
+            textShadow: done ? '0 0 20px rgba(200,127,150,0.2)' : 'none',
           }}
           animate={done ? { scale: [1, 1.08, 1] } : {}}
           transition={{ duration: 0.4, ease: 'easeOut' }}

@@ -26,11 +26,11 @@ export default function InfoBanner() {
               key={i}
               href={item.href}
               className="inline-flex items-center text-xs font-mono uppercase tracking-[0.2em] mx-8"
-              style={{ textDecoration: 'none', color: '#8B5CF6' }}
+              style={{ textDecoration: 'none', color: '#C87F96' }}
             >
               <span
                 className="w-1 h-1 rounded-full mr-4 flex-shrink-0"
-                style={{ backgroundColor: '#8B5CF6' }}
+                style={{ backgroundColor: '#C87F96' }}
               />
               {item.label}
             </Link>
@@ -41,7 +41,7 @@ export default function InfoBanner() {
             >
               <span
                 className="w-1 h-1 rounded-full mr-4 flex-shrink-0"
-                style={{ backgroundColor: 'rgba(139,92,246,0.35)' }}
+                style={{ backgroundColor: 'rgba(200,127,150,0.35)' }}
               />
               {item.label}
             </span>

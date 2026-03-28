@@ -71,14 +71,14 @@ function InterestCard({ interest, index }) {
       {/* Top border sweep */}
       <motion.div
         className="absolute top-0 left-0 right-0 h-px origin-left z-20"
-        style={{ background: 'linear-gradient(90deg, transparent, #8B5CF6, #C4B5FD, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, #C87F96, #7ED4BC, transparent)' }}
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, delay: index * 0.12 + 0.3, ease: [0.22, 1, 0.36, 1] }}
       />
 
-      <div className="relative border border-[#160e24] bg-[#080810]/60 p-7 rounded-xl overflow-hidden transition-colors duration-500 group-hover:border-accent/25 flex gap-5 items-start">
+      <div className="relative border border-[#E0DCD7] bg-[#F8F6F4]/60 p-7 rounded-xl overflow-hidden transition-colors duration-500 group-hover:border-accent/25 flex gap-5 items-start">
 
         {/* Mouse spotlight */}
         <motion.div
@@ -86,7 +86,7 @@ function InterestCard({ interest, index }) {
           style={{
             background: useTransform(
               [spotlightX, spotlightY],
-              ([x, y]) => `radial-gradient(220px circle at ${x} ${y}, rgba(139,92,246,0.1) 0%, transparent 70%)`
+              ([x, y]) => `radial-gradient(220px circle at ${x} ${y}, rgba(200,127,150,0.1) 0%, transparent 70%)`
             ),
           }}
           aria-hidden="true"
@@ -95,7 +95,7 @@ function InterestCard({ interest, index }) {
         {/* Ambient glow */}
         <div
           className="absolute inset-0 pointer-events-none rounded-xl"
-          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,92,246,0.07) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,127,150,0.07) 0%, transparent 70%)' }}
           aria-hidden="true"
         />
 
@@ -118,7 +118,7 @@ function InterestCard({ interest, index }) {
         {/* Bottom accent line — widens on hover */}
         <motion.div
           className="absolute bottom-0 left-0 h-px"
-          style={{ background: 'linear-gradient(90deg, #8B5CF6, transparent)' }}
+          style={{ background: 'linear-gradient(90deg, #C87F96, transparent)' }}
           initial={{ width: 0 }}
           whileHover={{ width: 56 }}
           animate={{ width: 0 }}
@@ -155,9 +155,9 @@ export default function AboutContent() {
           <motion.span
             animate={{
               textShadow: [
-                '0 0 0px rgba(139,92,246,0)',
-                '0 0 18px rgba(139,92,246,0.7)',
-                '0 0 0px rgba(139,92,246,0)',
+                '0 0 0px rgba(200,127,150,0)',
+                '0 0 18px rgba(200,127,150,0.7)',
+                '0 0 0px rgba(200,127,150,0)',
               ],
               opacity: [1, 0.75, 1],
             }}
@@ -239,7 +239,7 @@ export default function AboutContent() {
                 onKeyDown={(e) => e.key === 'Enter' && setSelectedExperience(exp)}
               >
                 <div className="absolute left-[-34px] top-9 w-2.5 h-2.5">
-                  <div className="absolute inset-0 rounded-full border-2 border-background" style={{ backgroundColor: 'rgba(139,92,246,0.5)' }} />
+                  <div className="absolute inset-0 rounded-full border-2 border-background" style={{ backgroundColor: 'rgba(200,127,150,0.5)' }} />
                 </div>
                 <p className="font-mono text-xs uppercase tracking-[0.25em] mb-2 text-accent">
                   {exp.date}
@@ -387,7 +387,7 @@ export default function AboutContent() {
                 <div className="h-[2px] bg-surface rounded">
                   <motion.div
                     className="h-full rounded"
-                    style={{ background: 'linear-gradient(90deg, #8B5CF6, #4C1D95)' }}
+                    style={{ background: 'linear-gradient(90deg, #C87F96, #7ED4BC)' }}
                     initial={{ width: 0 }}
                     whileInView={{ width: `${cat.proficiency}%` }}
                     viewport={{ once: true }}

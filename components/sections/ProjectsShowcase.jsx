@@ -75,12 +75,12 @@ function LiveMetrics({ meta, active }) {
     <div className="absolute top-5 left-6 flex gap-7 z-20" aria-hidden="true">
       {meta.metrics.map((m, i) => (
         <div key={m.label} className="flex flex-col gap-0.5">
-          <span className="font-mono text-[11px] uppercase tracking-[0.15em]" style={{ color: 'rgba(196,181,253,0.8)' }}>
+          <span className="font-mono text-[11px] uppercase tracking-[0.15em]" style={{ color: 'rgba(200,127,150,0.8)' }}>
             {m.label}
           </span>
           <motion.span
             key={vals[i]}
-            className="font-mono text-[17px] font-bold text-white"
+            className="font-mono text-[17px] font-bold text-foreground"
             initial={{ opacity: 0.4 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.15 }}
@@ -125,19 +125,19 @@ function SparkLine({ path, active, endY }) {
         <motion.circle
           cx="144" cy={endY ?? 10}
           r="2"
-          fill="#8B5CF6"
+          fill="#C87F96"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: active ? 1 : 0.4, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.3 }}
         />
         <defs>
           <linearGradient id="sparkStroke" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(139,92,246,0.3)" />
-            <stop offset="100%" stopColor="#8B5CF6" />
+            <stop offset="0%" stopColor="rgba(200,127,150,0.3)" />
+            <stop offset="100%" stopColor="#C87F96" />
           </linearGradient>
           <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(139,92,246,0.6)" />
-            <stop offset="100%" stopColor="rgba(139,92,246,0)" />
+            <stop offset="0%" stopColor="rgba(200,127,150,0.6)" />
+            <stop offset="100%" stopColor="rgba(200,127,150,0)" />
           </linearGradient>
         </defs>
       </svg>
@@ -158,7 +158,7 @@ function ProjectCard({ project, index, isActive }) {
       {/* Background gradient */}
       <div
         className="absolute inset-0 rounded-lg"
-        style={{ background: project.gradient || 'linear-gradient(135deg, #1e0f3a 0%, #0a0720 100%)' }}
+        style={{ background: project.gradient || 'linear-gradient(135deg, #F0E6EA 0%, #E8EDE6 100%)' }}
         aria-hidden="true"
       />
 
@@ -167,7 +167,7 @@ function ProjectCard({ project, index, isActive }) {
         className="absolute inset-0 rounded-lg pointer-events-none"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(139,92,246,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.04) 1px, transparent 1px)',
+            'linear-gradient(rgba(200,127,150,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200,127,150,0.04) 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }}
         aria-hidden="true"
@@ -176,7 +176,7 @@ function ProjectCard({ project, index, isActive }) {
       {/* Scan line */}
       <motion.div
         className="absolute left-0 right-0 h-12 pointer-events-none z-10"
-        style={{ background: 'linear-gradient(to bottom, transparent, rgba(139,92,246,0.05), transparent)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent, rgba(200,127,150,0.05), transparent)' }}
         animate={{ top: ['-15%', '115%'] }}
         transition={{ duration: 3.5, repeat: Infinity, ease: 'linear', delay: index * 1.1 }}
         aria-hidden="true"
@@ -193,7 +193,7 @@ function ProjectCard({ project, index, isActive }) {
         className="absolute top-5 right-6 font-mono font-bold select-none pointer-events-none z-20"
         style={{
           fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
-          color: isActive ? 'rgba(139,92,246,0.2)' : 'rgba(139,92,246,0.09)',
+          color: isActive ? 'rgba(200,127,150,0.2)' : 'rgba(200,127,150,0.09)',
           lineHeight: 1,
           letterSpacing: '-0.04em',
         }}
@@ -213,11 +213,11 @@ function ProjectCard({ project, index, isActive }) {
         >
           <motion.span
             className="w-1.5 h-1.5 rounded-full"
-            style={{ backgroundColor: '#8B5CF6' }}
+            style={{ backgroundColor: '#C87F96' }}
             animate={{ opacity: [1, 0.2, 1] }}
             transition={{ duration: 1.1, repeat: Infinity }}
           />
-          <span className="font-mono text-[9px] uppercase tracking-[0.25em]" style={{ color: 'rgba(139,92,246,0.6)' }}>
+          <span className="font-mono text-[9px] uppercase tracking-[0.25em]" style={{ color: 'rgba(200,127,150,0.6)' }}>
             live
           </span>
         </motion.div>
@@ -230,10 +230,10 @@ function ProjectCard({ project, index, isActive }) {
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="relative z-10">
-          <h3 className="font-serif font-bold text-lg md:text-xl text-white leading-tight mb-2">
+          <h3 className="font-serif font-bold text-lg md:text-xl text-foreground leading-tight mb-2">
             {project.title}
           </h3>
-          <p className="text-white/60 max-w-xs leading-relaxed font-mono text-xs uppercase tracking-wider">
+          <p className="text-muted max-w-xs leading-relaxed font-mono text-xs uppercase tracking-wider">
             {project.subtitle}
           </p>
         </div>
@@ -242,8 +242,8 @@ function ProjectCard({ project, index, isActive }) {
           className="absolute bottom-0 left-0 right-0 h-px"
           style={{
             background: isActive
-              ? 'linear-gradient(90deg, rgba(139,92,246,0.6), rgba(76,29,149,0.4), transparent)'
-              : 'linear-gradient(90deg, rgba(139,92,246,0.2), rgba(76,29,149,0.1), transparent)',
+              ? 'linear-gradient(90deg, rgba(200,127,150,0.6), rgba(126,212,188,0.4), transparent)'
+              : 'linear-gradient(90deg, rgba(200,127,150,0.2), rgba(126,212,188,0.1), transparent)',
           }}
         />
       </motion.div>
@@ -345,8 +345,8 @@ export default function ProjectsShowcase() {
                     width: i === current ? 24 : 6,
                     height: 2,
                     background: i === current
-                      ? 'linear-gradient(90deg, #8B5CF6, #4C1D95)'
-                      : 'rgba(139,92,246,0.2)',
+                      ? 'linear-gradient(90deg, #C87F96, #7ED4BC)'
+                      : 'rgba(200,127,150,0.2)',
                     borderRadius: 2,
                     transition: 'width 0.3s ease, background 0.3s ease',
                   }}

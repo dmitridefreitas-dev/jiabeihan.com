@@ -24,7 +24,7 @@ function ProjectRow({ project, index, onOpen }) {
         <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-1 md:w-24 flex-shrink-0">
           <span
             className="font-serif font-bold text-3xl leading-none group-hover:text-accent transition-colors"
-            style={{ color: 'rgba(139,92,246,0.15)' }}
+            style={{ color: 'rgba(200,127,150,0.15)' }}
           >
             {String(index + 1).padStart(2, '0')}
           </span>
@@ -97,7 +97,7 @@ export default function ProjectsContent() {
           className="absolute font-mono font-bold select-none pointer-events-none"
           style={{
             fontSize: 'clamp(2.5rem, 8vw, 7rem)',
-            color: 'rgba(139,92,246,1)',
+            color: 'rgba(200,127,150,1)',
             letterSpacing: '-0.06em',
             lineHeight: 1,
             top: '50%',
@@ -121,9 +121,9 @@ export default function ProjectsContent() {
           <motion.span
             animate={{
               textShadow: [
-                '0 0 0px rgba(139,92,246,0)',
-                '0 0 16px rgba(139,92,246,0.65)',
-                '0 0 0px rgba(139,92,246,0)',
+                '0 0 0px rgba(200,127,150,0)',
+                '0 0 16px rgba(200,127,150,0.65)',
+                '0 0 0px rgba(200,127,150,0)',
               ],
               opacity: [1, 0.7, 1],
             }}
@@ -161,9 +161,9 @@ export default function ProjectsContent() {
                 whileTap={{ scale: 0.97 }}
                 className="font-mono text-xs uppercase tracking-[0.25em] px-4 py-2 rounded-lg border transition-all"
                 style={{
-                  background: activeCategory === cat ? '#8B5CF6' : 'transparent',
-                  color: activeCategory === cat ? '#FFFFFF' : '#9CA3AF',
-                  borderColor: activeCategory === cat ? '#8B5CF6' : '#160e24',
+                  background: activeCategory === cat ? '#C87F96' : 'transparent',
+                  color: activeCategory === cat ? '#FFFFFF' : '#7A7A86',
+                  borderColor: activeCategory === cat ? '#C87F96' : '#E0DCD7',
                 }}
                 data-cursor="expand"
               >

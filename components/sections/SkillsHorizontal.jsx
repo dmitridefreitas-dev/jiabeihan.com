@@ -140,7 +140,7 @@ export default function SkillsHorizontal() {
               <span
                 key={`${skill.name}-${i}`}
                 className="font-serif font-bold text-4xl md:text-6xl uppercase tracking-tighter cursor-pointer"
-                style={{ color: 'rgba(139,92,246,0.12)' }}
+                style={{ color: 'rgba(200,127,150,0.12)' }}
                 onClick={() => setSelectedSkill(skill)}
               >
                 {skill.name}

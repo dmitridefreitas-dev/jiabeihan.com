@@ -63,8 +63,8 @@ export default function TiltCard({ children, className = '', style = {}, disable
           style={{
             background: `radial-gradient(
               circle 200px at ${lightPos.x}% ${lightPos.y}%,
-              rgba(139,92,246,0.05) 0%,
-              rgba(76,29,149,0.03) 40%,
+              rgba(200,127,150,0.05) 0%,
+              rgba(126,212,188,0.03) 40%,
               transparent 70%
             )`,
             opacity: 1,

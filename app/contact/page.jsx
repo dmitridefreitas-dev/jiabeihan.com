@@ -8,10 +8,10 @@ import { useToast } from '@/hooks/use-toast';
 import { contactInfo, opportunityGroups, socialLinks } from '@/data/constants';
 
 const CONTACT_SHAPES = [
-  { label: '$', style: { fontSize: 'clamp(1.75rem, 3.5vw, 3rem)', top: '16%', left: '5%', color: 'rgba(139,92,246,0.08)' }, floatY: [-6, 6, -6], dur: 9 },
-  { label: '%', style: { fontSize: 'clamp(1.25rem, 2.5vw, 2.25rem)', top: '22%', right: '7%', color: 'rgba(76,29,149,0.07)' }, floatY: [4, -4, 4], dur: 11 },
-  { label: 'Δ', style: { fontSize: 'clamp(1.5rem, 3vw, 2.75rem)', bottom: '24%', left: '6%', color: 'rgba(139,92,246,0.07)' }, floatY: [-5, 5, -5], dur: 13 },
-  { label: 'σ', style: { fontSize: 'clamp(1rem, 2vw, 1.75rem)', bottom: '28%', right: '5%', color: 'rgba(34,211,238,0.07)' }, floatY: [5, -5, 5], dur: 10 },
+  { label: '$', style: { fontSize: 'clamp(1.75rem, 3.5vw, 3rem)', top: '16%', left: '5%', color: 'rgba(200,127,150,0.08)' }, floatY: [-6, 6, -6], dur: 9 },
+  { label: '%', style: { fontSize: 'clamp(1.25rem, 2.5vw, 2.25rem)', top: '22%', right: '7%', color: 'rgba(126,212,188,0.07)' }, floatY: [4, -4, 4], dur: 11 },
+  { label: 'Δ', style: { fontSize: 'clamp(1.5rem, 3vw, 2.75rem)', bottom: '24%', left: '6%', color: 'rgba(200,127,150,0.07)' }, floatY: [-5, 5, -5], dur: 13 },
+  { label: 'σ', style: { fontSize: 'clamp(1rem, 2vw, 1.75rem)', bottom: '28%', right: '5%', color: 'rgba(232,197,96,0.07)' }, floatY: [5, -5, 5], dur: 10 },
 ];
 
 export default function ContactPage() {
@@ -94,9 +94,9 @@ export default function ContactPage() {
           <motion.span
             animate={{
               textShadow: [
-                '0 0 0px rgba(139,92,246,0)',
-                '0 0 16px rgba(139,92,246,0.65)',
-                '0 0 0px rgba(139,92,246,0)',
+                '0 0 0px rgba(200,127,150,0)',
+                '0 0 16px rgba(200,127,150,0.65)',
+                '0 0 0px rgba(200,127,150,0)',
               ],
               opacity: [1, 0.7, 1],
             }}
@@ -135,7 +135,7 @@ export default function ContactPage() {
             top: '20%', right: '-10%',
             width: '40vw', height: '40vw',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(200,127,150,0.05) 0%, transparent 70%)',
           }}
           animate={{ opacity: [0.4, 1, 0.4], scale: [1, 1.1, 1] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
@@ -166,7 +166,7 @@ export default function ContactPage() {
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   >
                     <motion.div
-                    animate={{ filter: ['drop-shadow(0 0 0px rgba(139,92,246,0))', 'drop-shadow(0 0 6px rgba(139,92,246,0.7))', 'drop-shadow(0 0 0px rgba(139,92,246,0))'] }}
+                    animate={{ filter: ['drop-shadow(0 0 0px rgba(200,127,150,0))', 'drop-shadow(0 0 6px rgba(200,127,150,0.7))', 'drop-shadow(0 0 0px rgba(200,127,150,0))'] }}
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: label === 'Email' ? 0 : label === 'Phone' ? 1.3 : 2.6 }}
                   >
                     <Icon className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
@@ -291,7 +291,7 @@ export default function ContactPage() {
                       animate={{ opacity: 1, scale: 1.1 }}
                       exit={{ opacity: 0, scale: 1.3 }}
                       transition={{ duration: 0.5 }}
-                      style={{ boxShadow: '0 0 40px rgba(139,92,246,0.4), 0 0 80px rgba(76,29,149,0.2)' }}
+                      style={{ boxShadow: '0 0 40px rgba(200,127,150,0.4), 0 0 80px rgba(126,212,188,0.2)' }}
                       aria-hidden="true"
                     />
                   )}

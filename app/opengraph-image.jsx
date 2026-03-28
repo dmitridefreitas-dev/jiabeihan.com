@@ -12,7 +12,7 @@ export default async function Image() {
         style={{
           width: '100%',
           height: '100%',
-          background: '#000000',
+          background: '#F0EDEA',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -31,7 +31,7 @@ export default async function Image() {
             height: '560px',
             borderRadius: '50%',
             background:
-              'radial-gradient(circle, rgba(139,92,246,0.18) 0%, rgba(76,29,149,0.08) 50%, transparent 70%)',
+              'radial-gradient(circle, rgba(200,127,150,0.18) 0%, rgba(126,212,188,0.08) 50%, transparent 70%)',
           }}
         />
         {/* Faint glow blob — bottom left */}
@@ -44,7 +44,7 @@ export default async function Image() {
             height: '360px',
             borderRadius: '50%',
             background:
-              'radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(200,127,150,0.08) 0%, transparent 70%)',
           }}
         />
 
@@ -57,7 +57,7 @@ export default async function Image() {
             bottom: '88px',
             width: '2px',
             background:
-              'linear-gradient(to bottom, rgba(139,92,246,0.9) 0%, rgba(196,181,253,0.5) 50%, rgba(76,29,149,0.1) 100%)',
+              'linear-gradient(to bottom, rgba(200,127,150,0.9) 0%, rgba(126,212,188,0.5) 50%, rgba(126,212,188,0.1) 100%)',
           }}
         />
 
@@ -77,7 +77,7 @@ export default async function Image() {
               fontSize: '13px',
               letterSpacing: '5px',
               textTransform: 'uppercase',
-              color: '#8B5CF6',
+              color: '#C87F96',
               marginBottom: '20px',
             }}
           >
@@ -90,7 +90,7 @@ export default async function Image() {
               fontFamily: 'Georgia, serif',
               fontSize: '90px',
               fontWeight: '700',
-              color: '#F9FAFB',
+              color: '#1C1C28',
               lineHeight: 1.05,
               letterSpacing: '-2px',
               marginBottom: '28px',
@@ -104,7 +104,7 @@ export default async function Image() {
             style={{
               width: '64px',
               height: '2px',
-              background: 'linear-gradient(to right, #8B5CF6, #4C1D95)',
+              background: 'linear-gradient(to right, #C87F96, #7ED4BC)',
               borderRadius: '2px',
               marginBottom: '28px',
             }}
@@ -117,7 +117,7 @@ export default async function Image() {
               fontSize: '19px',
               letterSpacing: '3px',
               textTransform: 'uppercase',
-              color: 'rgba(249,250,251,0.7)',
+              color: 'rgba(28,28,40,0.7)',
               marginBottom: '12px',
             }}
           >
@@ -131,7 +131,7 @@ export default async function Image() {
               fontSize: '15px',
               letterSpacing: '2.5px',
               textTransform: 'uppercase',
-              color: 'rgba(139,92,246,0.75)',
+              color: 'rgba(200,127,150,0.75)',
             }}
           >
             Washington University in St. Louis · Capital Markets at U.S. Bank
@@ -147,7 +147,7 @@ export default async function Image() {
             right: '88px',
             height: '1px',
             background:
-              'linear-gradient(to right, rgba(139,92,246,0.6), rgba(139,92,246,0.1), transparent)',
+              'linear-gradient(to right, rgba(200,127,150,0.6), rgba(200,127,150,0.1), transparent)',
           }}
         />
 
@@ -160,7 +160,7 @@ export default async function Image() {
             fontFamily: 'Georgia, serif',
             fontSize: '220px',
             fontWeight: '700',
-            color: 'rgba(139,92,246,0.04)',
+            color: 'rgba(200,127,150,0.04)',
             letterSpacing: '-8px',
             lineHeight: 1,
             userSelect: 'none',

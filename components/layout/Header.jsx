@@ -56,7 +56,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className="relative font-mono text-xs uppercase tracking-[0.25em] transition-colors duration-200 hover:text-accent"
-                style={{ color: isActive ? '#8B5CF6' : '#9CA3AF' }}
+                style={{ color: isActive ? '#C87F96' : '#7A7A86' }}
                 data-cursor="expand"
               >
                 {link.label}
@@ -121,7 +121,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className="font-mono text-xs uppercase tracking-[0.3em] transition-colors py-2 min-h-[44px] flex items-center"
-                  style={{ color: isActive ? '#8B5CF6' : '#F9FAFB' }}
+                  style={{ color: isActive ? '#C87F96' : '#1C1C28' }}
                 >
                   {link.label}
                 </Link>

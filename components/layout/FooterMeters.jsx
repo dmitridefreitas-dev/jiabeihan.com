@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const METERS = [
-  { label: 'Markets Analyzed', baseVal: 74, unit: '%', color: '#8B5CF6' },
-  { label: 'Models Built', baseVal: 88, unit: '%', color: '#4C1D95' },
+  { label: 'Markets Analyzed', baseVal: 74, unit: '%', color: '#C87F96' },
+  { label: 'Models Built', baseVal: 88, unit: '%', color: '#7ED4BC' },
 ];
 
 function YieldCurve() {
@@ -31,7 +31,7 @@ function YieldCurve() {
     >
       <motion.polyline
         points={points}
-        stroke="rgba(139,92,246,0.55)"
+        stroke="rgba(200,127,150,0.55)"
         strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
