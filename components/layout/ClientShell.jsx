@@ -1,7 +1,9 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { ScrollParallaxProvider, useScrollParallax } from '@/contexts/ScrollParallaxContext';
 import ParallaxScene from '@/components/effects/ParallaxScene';
+import CustomCursor from '@/components/effects/CustomCursor';
+import ThemeColorCycler from '@/components/effects/ThemeColorCycler';
 import { motion } from 'framer-motion';
 
 /**
@@ -36,6 +38,32 @@ function ParallaxBackgroundLayers() {
  *   ParallaxScene (applies 3D tilt to page content)
  */
 export default function ClientShell({ children }) {
+  // Unified light source: track mouse position as CSS custom properties
+  useEffect(() => {
+    let rafId = null;
+    let pendingX = 0.5;
+    let pendingY = 0.5;
+
+    const onMouseMove = (e) => {
+      pendingX = e.clientX / window.innerWidth;
+      pendingY = e.clientY / window.innerHeight;
+
+      if (rafId !== null) return; // already scheduled
+      rafId = requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--light-x', pendingX.toFixed(4));
+        document.documentElement.style.setProperty('--light-y', pendingY.toFixed(4));
+        rafId = null;
+      });
+    };
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   useEffect(() => {
     // Suppress Spline runtime onFrame errors (scene object loses 'position'
     // reference during the animation loop). We match on the error message
@@ -68,10 +96,14 @@ export default function ClientShell({ children }) {
   }, []);
 
   return (
-    <ScrollParallaxProvider>
-      <ParallaxScene>
-        {children}
-      </ParallaxScene>
-    </ScrollParallaxProvider>
+    <>
+      <CustomCursor />
+      <ThemeColorCycler />
+      <ScrollParallaxProvider>
+        <ParallaxScene>
+          {children}
+        </ParallaxScene>
+      </ScrollParallaxProvider>
+    </>
   );
 }

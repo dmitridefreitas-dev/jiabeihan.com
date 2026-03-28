@@ -7,7 +7,7 @@ import { skillsData } from '@/data/skills';
 function SkillCard({ skill, onClick, className = '' }) {
   return (
     <div
-      className={`flex-shrink-0 w-[75vw] md:w-[44vw] lg:w-[28vw] h-full flex flex-col justify-center items-center text-center px-8 md:px-10 border-r border-border cursor-pointer group bg-surface/60 hover:bg-surface transition-colors ${className}`}
+      className={`glass-skill-card flex-shrink-0 w-[75vw] md:w-[44vw] lg:w-[28vw] h-full flex flex-col justify-center items-center text-center px-8 md:px-10 border-r border-border cursor-pointer group ${className}`}
       onClick={onClick}
       role="button"
       tabIndex={0}

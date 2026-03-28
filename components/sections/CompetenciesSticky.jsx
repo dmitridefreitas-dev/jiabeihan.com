@@ -2,6 +2,7 @@
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import { competencies } from '@/data/constants';
+import { useSectionInView, entranceVariants } from '@/hooks/useStaggerEntrance';
 
 function CompCard({ comp, index }) {
   const Icon = comp.icon;
@@ -33,10 +34,11 @@ function CompCard({ comp, index }) {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      custom={index}
+      variants={entranceVariants.card(index)}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
       className="group relative overflow-hidden"
     >
       {/* Top border — always visible, holo animated */}
@@ -108,12 +110,14 @@ function CompCard({ comp, index }) {
 }
 
 export default function CompetenciesSticky() {
+  const { ref: sectionRef, isInView } = useSectionInView(0.15);
+
   return (
-    <section className="section-full flex-col px-6 lg:px-12" aria-label="Core Competencies">
+    <section ref={sectionRef} className="section-full flex-col px-6 lg:px-12" aria-label="Core Competencies">
       <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
+        variants={entranceVariants.label}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
         className="font-mono text-xs uppercase tracking-[0.4em] text-muted text-center mb-12"
       >
         Core Competencies

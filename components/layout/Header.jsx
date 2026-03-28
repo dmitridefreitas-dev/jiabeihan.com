@@ -111,24 +111,26 @@ export default function Header() {
               )}
             </AnimatePresence>
           </button>
-          <a
+          <MagneticButton
             href={socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted hover:text-accent transition-colors"
+            variant="ghost"
+            className="!p-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="LinkedIn"
             data-cursor="expand"
           >
             <Linkedin className="h-4 w-4" />
-          </a>
-          <a
+          </MagneticButton>
+          <MagneticButton
             href={`mailto:${contactInfo.email}`}
-            className="text-muted hover:text-accent transition-colors"
+            variant="ghost"
+            className="!p-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Email"
             data-cursor="expand"
           >
             <Mail className="h-4 w-4" />
-          </a>
+          </MagneticButton>
           <MagneticButton href="https://drive.google.com/file/d/1DalgRC93YUuKqW7EOCM9Fff1c6nwfgDX/view?usp=drive_link" target="_blank" rel="noopener noreferrer" variant="ghost" className="text-sm px-4 py-1.5" data-cursor="expand">
             Resume
           </MagneticButton>

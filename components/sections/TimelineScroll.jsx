@@ -1,6 +1,6 @@
 'use client';
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { timeline } from '@/data/constants';
 
 const TYPE_COLORS = {
@@ -17,8 +17,32 @@ function Entry({ entry, align = 'left' }) {
   const dot = TYPE_COLORS[entry.type] || '#CC0022';
   const isRight = align === 'right';
 
+  // Typewriter effect for the title
+  const entryRef = useRef(null);
+  const isInView = useInView(entryRef, { once: true });
+  const [displayText, setDisplayText] = useState('');
+  const [typingDone, setTypingDone] = useState(false);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const fullText = entry.title;
+    let i = 0;
+    setDisplayText('');
+    setTypingDone(false);
+    const id = setInterval(() => {
+      i += 1;
+      setDisplayText(fullText.slice(0, i));
+      if (i >= fullText.length) {
+        clearInterval(id);
+        setTypingDone(true);
+      }
+    }, 30);
+    return () => clearInterval(id);
+  }, [isInView, entry.title]);
+
   return (
     <motion.div
+      ref={entryRef}
       initial={{ opacity: 0, x: isRight ? 28 : -28 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: '-10%' }}
@@ -31,11 +55,16 @@ function Entry({ entry, align = 'left' }) {
           {entry.type}
         </span>
       </div>
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted/60 leading-none">
+      <span className="timeline-year-badge inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 rounded-sm" style={{
+        background: 'rgba(28,28,40,0.9)',
+        color: '#1AAF42',
+        letterSpacing: '0.2em',
+      }}>
         {entry.year}
-      </p>
+      </span>
       <h3 className="font-serif font-bold text-base md:text-lg text-secondary leading-snug max-w-[260px]">
-        {entry.title}
+        {displayText}
+        {!typingDone && <span className="blink-cursor-char">|</span>}
       </h3>
       <p className="text-sm text-muted leading-relaxed max-w-[260px] line-clamp-2">
         {entry.description}

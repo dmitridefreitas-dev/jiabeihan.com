@@ -46,7 +46,7 @@ export default function SectionAtmosphere({ children, atmosphere = 'hero', class
   }, [isInView, atmosphere]);
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={className} data-atmosphere={atmosphere}>
       {children}
     </div>
   );

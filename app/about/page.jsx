@@ -1,4 +1,5 @@
 import AboutContent from '@/components/sections/AboutContent';
+import PageTransition from '@/components/layout/PageTransition';
 
 export const metadata = {
   title: 'About — Jiabei Han | Finance & Computer Science',
@@ -22,5 +23,9 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutContent />;
+  return (
+    <PageTransition>
+      <AboutContent />
+    </PageTransition>
+  );
 }

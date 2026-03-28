@@ -52,6 +52,8 @@ export default function TiltCard({ children, className = '', style = {}, disable
         rotateY,
         transformStyle: 'preserve-3d',
         perspective: '800px',
+        boxShadow: isHovered ? 'var(--shadow-md)' : 'var(--shadow-sm)',
+        transition: 'box-shadow 0.25s ease',
         ...style,
       }}
       className={className}

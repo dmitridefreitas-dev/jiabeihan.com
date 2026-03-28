@@ -1,4 +1,5 @@
 import ProjectsContent from '@/components/sections/ProjectsContent';
+import PageTransition from '@/components/layout/PageTransition';
 
 export const metadata = {
   title: 'Projects & Experience — Jiabei Han | Finance & Capital Markets',
@@ -24,5 +25,9 @@ export const metadata = {
 };
 
 export default function ProjectsPage() {
-  return <ProjectsContent />;
+  return (
+    <PageTransition>
+      <ProjectsContent />
+    </PageTransition>
+  );
 }

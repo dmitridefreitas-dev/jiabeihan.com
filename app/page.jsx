@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-
 const SplineHero = dynamic(() => import('@/components/sections/SplineHero'), {
   ssr: false,
   loading: () => (
@@ -12,6 +11,7 @@ import SectionAtmosphere from '@/components/effects/SectionAtmosphere';
 
 const KPIFullscreen = dynamic(() => import('@/components/sections/KPIFullscreen'));
 const ProjectsShowcase = dynamic(() => import('@/components/sections/ProjectsShowcase'));
+const DealFlowViz = dynamic(() => import('@/components/sections/DealFlowViz'));
 const SkillsHorizontal = dynamic(() => import('@/components/sections/SkillsHorizontal'));
 const CompetenciesSticky = dynamic(() => import('@/components/sections/CompetenciesSticky'));
 const TimelineScroll = dynamic(() => import('@/components/sections/TimelineScroll'));
@@ -34,6 +34,9 @@ export default function Home() {
       </SectionAtmosphere>
       <SectionAtmosphere atmosphere="work">
         <ProjectsShowcase />
+      </SectionAtmosphere>
+      <SectionAtmosphere atmosphere="work">
+        <DealFlowViz />
       </SectionAtmosphere>
       <SectionAtmosphere atmosphere="skills">
         <SkillsHorizontal />

@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES — SHADOW SYSTEM
+───────────────────────────────────────────────────────────────────────────── */
+:root {
+  --light-x: 0.5;
+  --light-y: 0.5;
+
+  --shadow-sm:
+    0 1px 2px rgba(0,0,0,0.03),
+    0 2px 4px rgba(0,0,0,0.03),
+    0 4px 8px rgba(0,0,0,0.02);
+
+  --shadow-md:
+    0 2px 4px rgba(0,0,0,0.04),
+    0 4px 8px rgba(0,0,0,0.03),
+    0 8px 16px rgba(0,0,0,0.03),
+    0 16px 32px rgba(0,0,0,0.02);
+
+  --shadow-lg:
+    0 4px 8px rgba(0,0,0,0.04),
+    0 8px 16px rgba(0,0,0,0.03),
+    0 16px 32px rgba(0,0,0,0.03),
+    0 32px 64px rgba(0,0,0,0.02);
+}
+
 /* Typography Hierarchy:
    text-foreground (#1C1C28) — page titles, hero text
    text-secondary (#2E2E3D)  — section h2/h3, card titles
@@ -34,6 +59,11 @@
     isolation: isolate;
   }
 
+  /* Hide default cursor on pointer devices — custom cursor handles it */
+  @media (hover: hover) {
+    html { cursor: none !important; }
+  }
+
   ::selection {
     background: rgba(0,68,204, 0.2);
     color: #1C1C28;
@@ -44,6 +74,14 @@
   ::-webkit-scrollbar-thumb { background: rgba(204,0,34, 0.4); border-radius: 2px; }
   ::-webkit-scrollbar-thumb:hover { background: rgba(0,68,204, 0.55); }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SECTION-AWARE SELECTION COLORS
+───────────────────────────────────────────────────────────────────────────── */
+[data-atmosphere="work"] ::selection    { background: rgba(204,0,34,0.15); }
+[data-atmosphere="skills"] ::selection  { background: rgba(0,68,204,0.2); }
+[data-atmosphere="timeline"] ::selection { background: rgba(0,119,51,0.15); }
+[data-atmosphere="cta"] ::selection     { background: rgba(68,0,153,0.15); }
 
 /* ─────────────────────────────────────────────────────────────────────────────
    ROYGBIV WAVE ANIMATION SYSTEM
@@ -199,25 +237,44 @@
     background: #F8F6F4;
     border: 1px solid #E0DCD7;
     border-radius: 12px;
+    box-shadow: var(--shadow-sm);
     transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
   }
   .academic-card:hover {
     border-color: rgba(0,68,204, 0.3);
-    box-shadow: 0 4px 24px rgba(0,68,204, 0.08), 0 1px 4px rgba(0,0,0,0.04);
+    box-shadow: var(--shadow-md), 0 4px 24px rgba(0,68,204, 0.08);
     transform: translateY(-2px);
+  }
+  .academic-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      circle at calc(var(--light-x) * 100%) calc(var(--light-y) * 100%),
+      rgba(255,255,255,0.12) 0%,
+      transparent 60%
+    );
+    z-index: 1;
+    transition: opacity 0.3s ease;
   }
 
   .cosmic-card {
     background: #F8F6F4;
     border: 1px solid #E0DCD7;
     border-radius: 12px;
+    box-shadow: var(--shadow-sm);
     transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
     position: relative;
     overflow: hidden;
   }
   .cosmic-card:hover {
     border-color: rgba(0,68,204, 0.25);
-    box-shadow: 0 4px 24px rgba(0,68,204, 0.08), 0 1px 4px rgba(0,0,0,0.04);
+    box-shadow: var(--shadow-md), 0 4px 24px rgba(0,68,204, 0.08);
     transform: translateY(-2px);
   }
 
@@ -263,6 +320,38 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
+   GLASS MORPHISM SKILL CARDS
+───────────────────────────────────────────────────────────────────────────── */
+.glass-skill-card {
+  background: rgba(248, 246, 244, 0.45);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-top: 1px solid rgba(255,255,255,0.6);
+  border-left: 1px solid rgba(255,255,255,0.4);
+  border-right: 1px solid rgba(0,68,204,0.08);
+  border-bottom: 1px solid rgba(0,68,204,0.08);
+  position: relative;
+  transition: backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #E61A42, #E56B1A, #D8AC1A, #1AAF42, #1A5DD8, #5E1AAF, #AF1ACA);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.glass-skill-card:hover::before {
+  opacity: 1;
+}
+.glass-skill-card:hover {
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  box-shadow: var(--shadow-md, 0 8px 32px rgba(0,0,0,0.08));
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
    UTILITIES — override Tailwind accent classes with ROYGBIV cycling
 ───────────────────────────────────────────────────────────────────────────── */
 @layer utilities {
@@ -289,6 +378,17 @@
     font-weight: 700;
     animation: holo-hue-wave 11s linear infinite;
   }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TEXT BREATHE ANIMATION — CTA headline
+───────────────────────────────────────────────────────────────────────────── */
+@keyframes text-breathe {
+  0%, 100% { letter-spacing: -0.02em; }
+  50%       { letter-spacing: -0.015em; }
+}
+.text-breathe {
+  animation: text-breathe 6s ease-in-out infinite;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -477,8 +577,24 @@
   border: 1px solid transparent;
   background-clip: padding-box;
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+.animated-border-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at calc(var(--light-x) * 100%) calc(var(--light-y) * 100%),
+    rgba(255,255,255,0.12) 0%,
+    transparent 60%
+  );
+  z-index: 1;
+  transition: opacity 0.3s ease;
 }
 .animated-border-card::before {
   content: '';
@@ -546,7 +662,7 @@
 ───────────────────────────────────────────────────────────────────────────── */
 @keyframes dot-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: 0.5; transform: scale(0.8); }
+  50%      { opacity: 0.5; transform: scale(0.7); }
 }
 .dot-pulse { animation: dot-pulse 2s ease-in-out infinite; will-change: transform, opacity; }
 
@@ -740,6 +856,11 @@ html.dark ::-webkit-scrollbar-track { background: #0F0F15; }
 html.dark ::-webkit-scrollbar-thumb { background: rgba(204,0,34, 0.55); border-radius: 2px; }
 html.dark ::-webkit-scrollbar-thumb:hover { background: rgba(0,68,204, 0.7); }
 
+/* Counter-invert timeline year badge so it stays near-black + green in dark mode */
+html.dark .timeline-year-badge {
+  filter: invert(1);
+}
+
 /* Hide atmospheric blobs — they invert to visible light circles on dark bg */
 html.dark .atm-blob-0,
 html.dark .atm-blob-1,
@@ -756,4 +877,28 @@ html.dark .paper-wash {
 .font-bold     { font-weight: 800 !important; }
 .font-extrabold{ font-weight: 800 !important; }
 .font-black    { font-weight: 900 !important; }
+
+/* ── Blinking cursor for KPI count-up and typewriter ── */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.blink-cursor-char { animation: blink-cursor 0.8s step-end infinite; }
+
+/* ── ROYGBIV scrollbar ── */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom,
+    #E61A42, #E56B1A, #D8AC1A, #1AAF42, #1A5DD8, #5E1AAF, #AF1ACA
+  ) !important;
+  box-shadow: 0 0 6px rgba(0,68,204,0.2) !important;
+  border-radius: 2px !important;
+}
+
+/* ── Premium focus states — ROYGBIV outline ── */
+input:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible {
+  outline: 2px solid #E61A42 !important;
+  animation: holo-hue-wave 4s linear infinite !important;
+  outline-offset: 3px !important;
+  border-radius: 4px !important;
+}
 

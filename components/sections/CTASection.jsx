@@ -38,7 +38,7 @@ export default function CTASection() {
           Available — May 2026
         </motion.p>
 
-        <h2 className="font-serif font-bold text-headline text-secondary text-center w-full will-change-transform mb-6">
+        <h2 className="font-serif font-bold text-headline text-secondary text-center w-full will-change-transform mb-6 text-breathe">
           <TextReveal splitBy="word" staggerDelay={0.08} center>
             Seeking Finance Opportunities
           </TextReveal>

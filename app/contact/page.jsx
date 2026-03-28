@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Send } from 'lucide-react';
 import TextReveal from '@/components/effects/TextReveal';
 import MagneticButton from '@/components/effects/MagneticButton';
+import PageTransition from '@/components/layout/PageTransition';
 import { useToast } from '@/hooks/use-toast';
 import { contactInfo, opportunityGroups, socialLinks } from '@/data/constants';
 
@@ -63,7 +64,7 @@ export default function ContactPage() {
   };
 
   return (
-    <>
+    <PageTransition>
       <section
         className="section-full flex-col text-center px-6 overflow-hidden pt-28"
         aria-label="Contact hero"
@@ -327,6 +328,6 @@ export default function ContactPage() {
           I&apos;m always happy to connect and discuss opportunities.
         </motion.p>
       </section>
-    </>
+    </PageTransition>
   );
 }

@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AtmosphericBlobs from '@/components/effects/AtmosphericBlobs';
 import ClientShell from '@/components/layout/ClientShell';
+
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 
