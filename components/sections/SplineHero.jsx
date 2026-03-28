@@ -4,7 +4,7 @@ export default function SplineHero() {
   return (
     <section style={{ width: '100%', height: '100vh', overflow: 'hidden', position: 'relative' }}>
       <Spline
-        scene="https://my.spline.design/r4xbot-4CvKW9zKwVUE1FuLGEuGkCiF/"
+        scene="/scene.splinecode"
         style={{ width: '100%', height: '100%' }}
       />
       {/* Seamless fade into page background */}
