@@ -159,12 +159,8 @@ export default function ProjectsContent() {
                 onClick={() => setActiveCategory(cat)}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="font-mono text-xs uppercase tracking-[0.25em] px-4 py-2 rounded-lg border transition-all"
-                style={{
-                  background: activeCategory === cat ? '#C87F96' : 'transparent',
-                  color: activeCategory === cat ? '#FFFFFF' : '#7A7A86',
-                  borderColor: activeCategory === cat ? '#C87F96' : '#E0DCD7',
-                }}
+                className={`font-mono text-xs uppercase tracking-[0.25em] px-4 py-2 rounded-lg border transition-all ${activeCategory === cat ? 'holo-filter-active' : ''}`}
+                style={activeCategory === cat ? {} : { color: '#4A4A5A', borderColor: '#E0DCD7' }}
                 data-cursor="expand"
               >
                 {cat}

@@ -7,7 +7,6 @@ export default function SplineHero() {
         scene="/scene.splinecode"
         style={{ width: '100%', height: '100%' }}
       />
-      {/* Seamless fade into page background */}
       <div
         aria-hidden="true"
         style={{

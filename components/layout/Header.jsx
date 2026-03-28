@@ -55,8 +55,9 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative font-mono text-xs uppercase tracking-[0.25em] transition-colors duration-200 hover:text-accent"
-                style={{ color: isActive ? '#C87F96' : '#7A7A86' }}
+                className={`relative font-mono text-xs uppercase tracking-[0.25em] font-bold transition-colors duration-200 ${
+                  isActive ? 'holo-nav-active' : 'text-muted hover:text-accent'
+                }`}
                 data-cursor="expand"
               >
                 {link.label}
@@ -120,8 +121,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-mono text-xs uppercase tracking-[0.3em] transition-colors py-2 min-h-[44px] flex items-center"
-                  style={{ color: isActive ? '#C87F96' : '#1C1C28' }}
+                  className={`font-mono text-xs uppercase tracking-[0.3em] font-bold transition-colors py-2 min-h-[44px] flex items-center ${isActive ? 'holo-nav-active' : ''}`}
                 >
                   {link.label}
                 </Link>

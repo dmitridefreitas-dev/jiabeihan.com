@@ -11,18 +11,18 @@ module.exports = {
         background: '#F0EDEA',
         foreground: '#1C1C28',
         muted: {
-          DEFAULT: '#7A7A86',
-          foreground: '#7A7A86',
+          DEFAULT: '#4A4A5A',
+          foreground: '#4A4A5A',
         },
         accent: {
-          DEFAULT: '#C87F96',
-          blue: '#7ED4BC',
-          indigo: '#C3B5E8',
-          violet: '#C87F96',
-          cyan: '#7ED4BC',
-          gold: '#E8C560',
+          DEFAULT: '#CC0022',
+          blue: '#0044CC',
+          indigo: '#440099',
+          violet: '#8800BB',
+          cyan: '#007733',
+          gold: '#9A8000',
           foreground: '#FFFFFF',
-          glow: 'rgba(200,127,150,0.15)',
+          glow: 'rgba(0,68,204,0.18)',
         },
         surface: {
           DEFAULT: '#F8F6F4',
@@ -43,10 +43,10 @@ module.exports = {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        'display':    ['clamp(1.75rem,3.5vw,2.75rem)', { lineHeight: '1.0',  letterSpacing: '-0.03em' }],
-        'headline':   ['clamp(1.2rem,2vw,1.75rem)',    { lineHeight: '1.05', letterSpacing: '-0.02em' }],
-        'subhead':    ['clamp(0.95rem,1.5vw,1.2rem)',  { lineHeight: '1.15', letterSpacing: '-0.01em' }],
-        'body-fluid': ['clamp(0.8rem,0.9vw,0.95rem)',  { lineHeight: '1.65' }],
+        'display':    ['clamp(1.75rem,3.5vw,2.75rem)', { lineHeight: '1.0',  letterSpacing: '-0.03em', fontWeight: '900' }],
+        'headline':   ['clamp(1.2rem,2vw,1.75rem)',    { lineHeight: '1.05', letterSpacing: '-0.02em', fontWeight: '800' }],
+        'subhead':    ['clamp(0.95rem,1.5vw,1.2rem)',  { lineHeight: '1.15', letterSpacing: '-0.01em', fontWeight: '700' }],
+        'body-fluid': ['clamp(0.8rem,0.9vw,0.95rem)',  { lineHeight: '1.65', fontWeight: '600' }],
       },
       keyframes: {
         'ticker-scroll': {
@@ -54,8 +54,8 @@ module.exports = {
           '100%': { transform: 'translateX(-33.333%)' },
         },
         'pulse-glow': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(200,127,150,0.15), 0 0 40px rgba(126,212,188,0.08)' },
-          '50%':      { boxShadow: '0 0 35px rgba(200,127,150,0.25), 0 0 70px rgba(126,212,188,0.12)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(204,0,34,0.15), 0 0 40px rgba(0,68,204,0.08)' },
+          '50%':      { boxShadow: '0 0 35px rgba(0,68,204,0.2), 0 0 70px rgba(0,119,51,0.1)' },
         },
         'grid-breathe': {
           '0%, 100%': { opacity: '1' },

@@ -42,7 +42,7 @@ function CompCard({ comp, index }) {
       {/* Sweep-in top border */}
       <motion.div
         className="absolute top-0 left-0 right-0 h-px origin-left z-20"
-        style={{ background: 'linear-gradient(90deg, #C87F96, #7ED4BC, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, #CC0022, #0044CC, transparent)' }}
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
@@ -59,7 +59,7 @@ function CompCard({ comp, index }) {
             background: useTransform(
               [spotlightX, spotlightY],
               ([x, y]) =>
-                `radial-gradient(260px circle at ${x} ${y}, rgba(200,127,150,0.1) 0%, transparent 70%)`
+                `radial-gradient(260px circle at ${x} ${y}, rgba(0,68,204,0.1) 0%, transparent 70%)`
             ),
           }}
           aria-hidden="true"
@@ -68,14 +68,14 @@ function CompCard({ comp, index }) {
         {/* Ambient glow */}
         <div
           className="absolute inset-0 pointer-events-none rounded-xl"
-          style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(200,127,150,0.06) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,68,204,0.06) 0%, transparent 70%)' }}
           aria-hidden="true"
         />
 
         {/* Ghost index number */}
         <p
           className="absolute top-3 right-5 font-mono font-bold select-none pointer-events-none leading-none"
-          style={{ fontSize: '4.5rem', color: 'rgba(200,127,150,0.04)', letterSpacing: '-0.05em' }}
+          style={{ fontSize: '4.5rem', color: 'rgba(0,68,204,0.04)', letterSpacing: '-0.05em' }}
           aria-hidden="true"
         >
           {num}
@@ -83,19 +83,13 @@ function CompCard({ comp, index }) {
 
         {/* Icon with pulsing glow ring */}
         <div className="flex items-center gap-2 mb-7 relative">
-          <span
-            className="font-mono text-xl leading-none select-none"
-            style={{ color: 'rgba(200,127,150,0.3)' }}
-          >[</span>
+          <span className="font-mono text-xl leading-none select-none holo-bracket">[</span>
 
           <div className="relative flex items-center justify-center">
             <Icon className="w-5 h-5 text-accent relative z-10" strokeWidth={1.5} />
           </div>
 
-          <span
-            className="font-mono text-xl leading-none select-none"
-            style={{ color: 'rgba(200,127,150,0.3)' }}
-          >]</span>
+          <span className="font-mono text-xl leading-none select-none holo-bracket">]</span>
         </div>
 
         <h3 className="font-serif font-bold text-lg text-foreground mb-3 leading-tight">
@@ -109,7 +103,7 @@ function CompCard({ comp, index }) {
         {/* Bottom accent — animates width on hover */}
         <motion.div
           className="mt-7 h-px"
-          style={{ background: 'linear-gradient(90deg, #C87F96, transparent)' }}
+          style={{ background: 'linear-gradient(90deg, #CC0022, transparent)' }}
           initial={{ width: 0 }}
           whileHover={{ width: 48 }}
           animate={{ width: 0 }}

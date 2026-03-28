@@ -4,17 +4,17 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { timeline } from '@/data/constants';
 
 const TYPE_COLORS = {
-  finance:   '#C87F96',
-  research:  '#C87F96',
-  education: '#C87F96',
-  activity:  '#C87F96',
+  finance:   '#CC0022',
+  research:  '#CC0022',
+  education: '#CC0022',
+  activity:  '#CC0022',
 };
 
 const left  = timeline.filter((e) => e.type !== 'finance');
 const right = timeline.filter((e) => e.type === 'finance');
 
 function Entry({ entry, align = 'left' }) {
-  const dot = TYPE_COLORS[entry.type] || '#C87F96';
+  const dot = TYPE_COLORS[entry.type] || '#CC0022';
   const isRight = align === 'right';
 
   return (
@@ -26,8 +26,8 @@ function Entry({ entry, align = 'left' }) {
       className={`flex flex-col gap-1.5 ${isRight ? 'items-start text-left' : 'items-end text-right'}`}
     >
       <div className={`flex items-center gap-2 ${isRight ? '' : 'flex-row-reverse'}`}>
-        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: dot }} />
-        <span className="font-mono text-xs uppercase tracking-[0.25em]" style={{ color: dot }}>
+        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 holo-dot" />
+        <span className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
           {entry.type}
         </span>
       </div>
@@ -69,23 +69,19 @@ export default function TimelineScroll() {
         {/* Ghost center line */}
         <div
           className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
-          style={{ background: 'rgba(200,127,150,0.08)' }}
+          style={{ background: 'rgba(0,68,204,0.08)' }}
         />
         {/* Animated fill line */}
         <motion.div
-          className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 origin-top"
-          style={{
-            background: 'rgba(200,127,150,0.7)',
-            scaleY: lineScaleY,
-            boxShadow: '0 0 8px rgba(200,127,150,0.4)',
-          }}
+          className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 origin-top holo-line"
+          style={{ scaleY: lineScaleY }}
         />
 
         <div className="flex flex-col">
           {Array.from({ length: rows }).map((_, rowIdx) => {
             const leftEntry  = left[rowIdx];
             const rightEntry = right[rowIdx];
-            const dotColor   = TYPE_COLORS[leftEntry?.type || rightEntry?.type] || '#C87F96';
+            const dotColor   = TYPE_COLORS[leftEntry?.type || rightEntry?.type] || '#CC0022';
 
             return (
               <div key={rowIdx} className="grid grid-cols-[1fr_auto_1fr] items-center gap-x-8 py-9">
@@ -94,12 +90,8 @@ export default function TimelineScroll() {
                 </div>
 
                 <motion.div
-                  className="w-3.5 h-3.5 rounded-full border-2 flex-shrink-0 z-10"
-                  style={{
-                    backgroundColor: dotColor,
-                    borderColor: '#F0EDEA',
-                    boxShadow: `0 0 12px ${dotColor}70`,
-                  }}
+                  className="w-3.5 h-3.5 rounded-full border-2 flex-shrink-0 z-10 holo-dot"
+                  style={{ borderColor: '#F0EDEA' }}
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}

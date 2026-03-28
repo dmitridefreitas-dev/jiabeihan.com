@@ -15,7 +15,7 @@ export default function CTASection() {
         className="absolute font-mono font-bold select-none pointer-events-none"
         style={{
           fontSize: 'clamp(2rem, 6vw, 5.5rem)',
-          color: 'rgba(200,127,150,0.04)',
+          color: 'rgba(0,68,204,0.04)',
           letterSpacing: '-0.05em',
           lineHeight: 1,
           top: '50%',

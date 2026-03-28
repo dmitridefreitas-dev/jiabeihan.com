@@ -9,37 +9,37 @@ const FINANCE_SHAPES = [
   {
     label: '$',
     className: 'float-geo-slow font-mono select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', top: '16%', left: '5%', color: 'rgba(200,127,150,0.07)', animationDuration: '11s' },
+    style: { fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', top: '16%', left: '5%', color: 'rgba(0,240,255,0.07)', animationDuration: '11s' },
   },
   {
     label: '%',
     className: 'float-geo font-mono select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(1.25rem, 2.5vw, 2.25rem)', top: '20%', right: '6%', color: 'rgba(200,127,150,0.06)', animationDelay: '1.5s', animationDuration: '9s' },
+    style: { fontSize: 'clamp(1.25rem, 2.5vw, 2.25rem)', top: '20%', right: '6%', color: 'rgba(0,240,255,0.06)', animationDelay: '1.5s', animationDuration: '9s' },
   },
   {
     label: 'Δ',
     className: 'float-geo-reverse font-mono select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(1.1rem, 2.2vw, 1.9rem)', bottom: '28%', left: '4%', color: 'rgba(126,212,188,0.06)', animationDelay: '0.8s', animationDuration: '12s' },
+    style: { fontSize: 'clamp(1.1rem, 2.2vw, 1.9rem)', bottom: '28%', left: '4%', color: 'rgba(0,255,136,0.06)', animationDelay: '0.8s', animationDuration: '12s' },
   },
   {
     label: 'σ',
     className: 'float-geo font-mono select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(1rem, 1.8vw, 1.6rem)', bottom: '22%', right: '5%', color: 'rgba(200,127,150,0.05)', animationDelay: '2s', animationDuration: '8s' },
+    style: { fontSize: 'clamp(1rem, 1.8vw, 1.6rem)', bottom: '22%', right: '5%', color: 'rgba(0,240,255,0.05)', animationDelay: '2s', animationDuration: '8s' },
   },
   {
     label: 'α',
     className: 'float-geo-slow font-mono select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(1.2rem, 2.2vw, 2rem)', top: '52%', right: '9%', color: 'rgba(34,211,238,0.05)', animationDelay: '3s', animationDuration: '13s' },
+    style: { fontSize: 'clamp(1.2rem, 2.2vw, 2rem)', top: '52%', right: '9%', color: 'rgba(170,255,0,0.05)', animationDelay: '3s', animationDuration: '13s' },
   },
   {
     label: 'β',
     className: 'float-geo-reverse font-mono select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(0.85rem, 1.4vw, 1.35rem)', top: '62%', left: '8%', color: 'rgba(200,127,150,0.045)', animationDelay: '1.2s', animationDuration: '10s' },
+    style: { fontSize: 'clamp(0.85rem, 1.4vw, 1.35rem)', top: '62%', left: '8%', color: 'rgba(0,240,255,0.045)', animationDelay: '1.2s', animationDuration: '10s' },
   },
   {
     label: 'Σ',
     className: 'float-geo font-mono select-none pointer-events-none absolute',
-    style: { fontSize: 'clamp(0.75rem, 1.2vw, 1.2rem)', top: '35%', left: '3%', color: 'rgba(195,181,232,0.04)', animationDelay: '4s', animationDuration: '14s' },
+    style: { fontSize: 'clamp(0.75rem, 1.2vw, 1.2rem)', top: '35%', left: '3%', color: 'rgba(255,45,120,0.04)', animationDelay: '4s', animationDuration: '14s' },
   },
 ];
 
@@ -67,7 +67,7 @@ export default function HeroSection() {
           width: '140%',
           height: '80%',
           background:
-            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,127,150,0.08) 0%, rgba(126,212,188,0.04) 40%, rgba(195,181,232,0.02) 65%, transparent 85%)',
+            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,240,255,0.09) 0%, rgba(0,255,136,0.05) 40%, rgba(170,255,0,0.03) 65%, transparent 85%)',
           transformOrigin: 'center top',
         }}
         aria-hidden="true"
@@ -121,7 +121,7 @@ export default function HeroSection() {
           className="w-32 my-6 origin-center"
           style={{
             height: '1px',
-            background: 'radial-gradient(ellipse at center, rgba(200,127,150,0.8) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(204,0,34,0.7) 0%, rgba(0,68,204,0.4) 60%, transparent 100%)',
           }}
         />
 
@@ -131,12 +131,14 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 1.05 }}
           className="font-mono text-xs uppercase tracking-[0.3em] max-w-sm"
           style={{
-            background: 'linear-gradient(90deg, #C87F96, #7ED4BC, #E8C560, #C87F96)',
-            backgroundSize: '300% 100%',
+            background: 'linear-gradient(90deg, #CC0022 0%, #DD5500 14%, #AA8800 28%, #007733 43%, #0044CC 57%, #5500AA 71%, #9900CC 85%, #CC0022 100%)',
+            backgroundSize: '200% 100%',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
-            animation: 'gradient-shift-subtitle 6s ease infinite',
+            filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.18))',
+            fontWeight: 800,
+            animation: 'holo-wave 4s linear infinite',
           }}
         >
           Finance &amp; Computer Science

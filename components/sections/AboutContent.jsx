@@ -71,7 +71,7 @@ function InterestCard({ interest, index }) {
       {/* Top border sweep */}
       <motion.div
         className="absolute top-0 left-0 right-0 h-px origin-left z-20"
-        style={{ background: 'linear-gradient(90deg, transparent, #C87F96, #7ED4BC, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, #CC0022, #0044CC, transparent)' }}
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
@@ -118,7 +118,7 @@ function InterestCard({ interest, index }) {
         {/* Bottom accent line — widens on hover */}
         <motion.div
           className="absolute bottom-0 left-0 h-px"
-          style={{ background: 'linear-gradient(90deg, #C87F96, transparent)' }}
+          style={{ background: 'linear-gradient(90deg, #CC0022, transparent)' }}
           initial={{ width: 0 }}
           whileHover={{ width: 56 }}
           animate={{ width: 0 }}
@@ -387,7 +387,7 @@ export default function AboutContent() {
                 <div className="h-[2px] bg-surface rounded">
                   <motion.div
                     className="h-full rounded"
-                    style={{ background: 'linear-gradient(90deg, #C87F96, #7ED4BC)' }}
+                    style={{ background: 'linear-gradient(90deg, #CC0022, #0044CC)' }}
                     initial={{ width: 0 }}
                     whileInView={{ width: `${cat.proficiency}%` }}
                     viewport={{ once: true }}

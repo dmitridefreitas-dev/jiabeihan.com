@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const METERS = [
-  { label: 'Markets Analyzed', baseVal: 74, unit: '%', color: '#C87F96' },
-  { label: 'Models Built', baseVal: 88, unit: '%', color: '#7ED4BC' },
+  { label: 'Markets Analyzed', baseVal: 74, unit: '%', color: '#CC0022' },
+  { label: 'Models Built', baseVal: 88, unit: '%', color: '#0044CC' },
 ];
 
 function YieldCurve() {

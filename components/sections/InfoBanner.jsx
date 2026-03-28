@@ -25,12 +25,11 @@ export default function InfoBanner() {
             <Link
               key={i}
               href={item.href}
-              className="inline-flex items-center text-xs font-mono uppercase tracking-[0.2em] mx-8"
-              style={{ textDecoration: 'none', color: '#C87F96' }}
+              className="inline-flex items-center text-xs font-mono uppercase tracking-[0.2em] mx-8 text-accent"
+              style={{ textDecoration: 'none' }}
             >
               <span
-                className="w-1 h-1 rounded-full mr-4 flex-shrink-0"
-                style={{ backgroundColor: '#C87F96' }}
+                className="w-1 h-1 rounded-full mr-4 flex-shrink-0 holo-dot"
               />
               {item.label}
             </Link>
